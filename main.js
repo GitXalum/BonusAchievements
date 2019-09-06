@@ -96,7 +96,7 @@ Game.customChecks = [
 			if (Game.shimmers[i].wrath == 1) w ++;
 		}
 		var n = Object.size(Game.shimmers);
-		if (n >= 2 and n > w and w > 0) Game.Win("Dichotomy");
+		if (n >= 2 && n > w && w > 0) Game.Win("Dichotomy");
 	}
 ]
 
