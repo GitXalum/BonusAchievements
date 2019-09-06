@@ -52,7 +52,7 @@ new Game.AddAchievement("Heavenly empire", "Obtain <b>1 billion</b> total heaven
 new Game.AddAchievement("Heavenly legacy", "Obtain <b>1 trillion</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
 
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
-new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie effect active <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
+new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
 
 
 new Game.AddAchievement('Ironman Mode', 'Get to <b>1 quadrillion</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
@@ -61,6 +61,7 @@ new Game.AddAchievement("Modded god complex", "Name yourself <b>Xalum</b>.<div c
 new Game.AddAchievement("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
+
 
 Game.Achievements['Stomachache'].order = 21000.108;
 Game.Achievements['Dyspepsia'].order = 21000.109;
@@ -74,6 +75,13 @@ Game.Achievements["Heavenly legacy"].order = 32000.83;
 Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
 
+
+Game.Achievements['Ironman Mode'].order = 32208;
+Game.Achievements["Decacentennial"].order = 32207.1;
+Game.Achievements["Modded god complex"].order = 30200.1592;
+Game.Achievements["Opti complex"].order = 30200.1591;
+Game.Achievements["Tragedy comes in trees"].order = 33000.105;
+Game.Achievements["Excellent bakery"].order = 36000.368;
 
 Game.XalAchievements = {};
 for (var i in Game.Achievements) {
@@ -97,6 +105,20 @@ Game.customChecks = [
 		}
 		var n = Object.size(Game.shimmers);
 		if (n >= 2 && n > w && w > 0) Game.Win("Dichotomy");
+
+
+		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
+		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
+		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
+		if (Game.Objects["Farm"].minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
+		if (Game.unbuffedCps >= trill && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
+
+		var minamount = 'undefined';
+		for (var i in Game.Objects) {
+			var me = Game.Objects[i]
+			if (minamount == 'undefined' || minamount > me.amount) minamount = me.amount;
+		}
+		if (minamount >= thou) Game.Win("Decacentennial")
 	}
 ]
 
@@ -116,6 +138,241 @@ Game.UpdateWrinklers = function() {
 			Game.Win('Hemorrhage');
 		}
 	}
+}
+
+Game.CalculateGains=function() {
+	Game.cookiesPs=0;
+	var mult=1;
+	//add up effect bonuses from building minigames
+	var effs={};
+	for (var i in Game.Objects)
+	{
+		if (Game.Objects[i].minigameLoaded && Game.Objects[i].minigame.effs)
+		{
+			var myEffs=Game.Objects[i].minigame.effs;
+			for (var ii in myEffs)
+			{
+				if (effs[ii]) effs[ii]*=myEffs[ii];
+				else effs[ii]=myEffs[ii];
+			}
+		}
+	}
+	Game.effs=effs;
+	
+	if (Game.ascensionMode!=1) mult+=parseFloat(Game.prestige)*0.01*Game.heavenlyPower*Game.GetHeavenlyMultiplier();
+	
+	mult*=Game.eff('cps');
+	
+	if (Game.Has('Heralds') && Game.ascensionMode!=1) mult*=1+0.01*Game.heralds;
+	
+	var cookieMult=0;
+	for (var i in Game.cookieUpgrades)
+	{
+		var me=Game.cookieUpgrades[i];
+		if (Game.Has(me.name))
+		{
+			mult*=(1+(typeof(me.power)=='function'?me.power(me):me.power)*0.01);
+		}
+	}
+	mult*=(1+0.01*cookieMult);
+	
+	if (Game.Has('Specialized chocolate chips')) mult*=1.01;
+	if (Game.Has('Designer cocoa beans')) mult*=1.02;
+	if (Game.Has('Underworld ovens')) mult*=1.03;
+	if (Game.Has('Exotic nuts')) mult*=1.04;
+	if (Game.Has('Arcane sugar')) mult*=1.05;
+	
+	if (Game.Has('Increased merriness')) mult*=1.15;
+	if (Game.Has('Improved jolliness')) mult*=1.15;
+	if (Game.Has('A lump of coal')) mult*=1.01;
+	if (Game.Has('An itchy sweater')) mult*=1.01;
+	if (Game.Has('Santa\'s dominion')) mult*=1.2;
+	
+	var buildMult=1;
+	if (Game.hasGod)
+	{
+		var godLvl=Game.hasGod('asceticism');
+		if (godLvl==1) mult*=1.15;
+		else if (godLvl==2) mult*=1.1;
+		else if (godLvl==3) mult*=1.05;
+		
+		var godLvl=Game.hasGod('ages');
+		if (godLvl==1) mult*=1+0.15*Math.sin((Date.now()/1000/(60*60*3))*Math.PI*2);
+		else if (godLvl==2) mult*=1+0.15*Math.sin((Date.now()/1000/(60*60*12))*Math.PI*2);
+		else if (godLvl==3) mult*=1+0.15*Math.sin((Date.now()/1000/(60*60*24))*Math.PI*2);
+		
+		var godLvl=Game.hasGod('decadence');
+		if (godLvl==1) buildMult*=0.93;
+		else if (godLvl==2) buildMult*=0.95;
+		else if (godLvl==3) buildMult*=0.98;
+		
+		var godLvl=Game.hasGod('industry');
+		if (godLvl==1) buildMult*=1.1;
+		else if (godLvl==2) buildMult*=1.06;
+		else if (godLvl==3) buildMult*=1.03;
+		
+		var godLvl=Game.hasGod('labor');
+		if (godLvl==1) buildMult*=0.97;
+		else if (godLvl==2) buildMult*=0.98;
+		else if (godLvl==3) buildMult*=0.99;
+	}
+	
+	if (Game.Has('Santa\'s legacy')) mult*=1+(Game.santaLevel+1)*0.03;
+	
+	for (var i in Game.Objects)
+	{
+		var me=Game.Objects[i];
+		me.storedCps=(typeof(me.cps)=='function'?me.cps(me):me.cps);
+		if (Game.ascensionMode!=1) me.storedCps*=(1+me.level*0.01)*buildMult;
+		me.storedTotalCps=me.amount*me.storedCps;
+		Game.cookiesPs+=me.storedTotalCps;
+		Game.cookiesPsByType[me.name]=me.storedTotalCps;
+	}
+	
+	if (Game.Has('"egg"')) {Game.cookiesPs+=9;Game.cookiesPsByType['"egg"']=9;}//"egg"
+	
+	for (var i in Game.customCps) {mult*=Game.customCps[i]();}
+	
+	Game.milkProgress=Game.AchievementsOwned/25;
+	var milkMult=1;
+	if (Game.Has('Santa\'s milk and cookies')) milkMult*=1.05;
+	if (Game.hasAura('Breath of Milk')) milkMult*=1.05;
+	if (Game.hasGod)
+	{
+		var godLvl=Game.hasGod('mother');
+		if (godLvl==1) milkMult*=1.1;
+		else if (godLvl==2) milkMult*=1.05;
+		else if (godLvl==3) milkMult*=1.03;
+	}
+	milkMult*=Game.eff('milk');
+	
+	var catMult=1;
+	
+	if (Game.Has('Kitten helpers')) catMult*=(1+Game.milkProgress*0.1*milkMult);
+	if (Game.Has('Kitten workers')) catMult*=(1+Game.milkProgress*0.125*milkMult);
+	if (Game.Has('Kitten engineers')) catMult*=(1+Game.milkProgress*0.15*milkMult);
+	if (Game.Has('Kitten overseers')) catMult*=(1+Game.milkProgress*0.175*milkMult);
+	if (Game.Has('Kitten managers')) catMult*=(1+Game.milkProgress*0.2*milkMult);
+	if (Game.Has('Kitten accountants')) catMult*=(1+Game.milkProgress*0.2*milkMult);
+	if (Game.Has('Kitten specialists')) catMult*=(1+Game.milkProgress*0.2*milkMult);
+	if (Game.Has('Kitten experts')) catMult*=(1+Game.milkProgress*0.2*milkMult);
+	if (Game.Has('Kitten consultants')) catMult*=(1+Game.milkProgress*0.2*milkMult);
+	if (Game.Has('Kitten assistants to the regional manager')) catMult*=(1+Game.milkProgress*0.175*milkMult);
+	if (Game.Has('Kitten marketeers')) catMult*=(1+Game.milkProgress*0.15*milkMult);
+	if (Game.Has('Kitten analysts')) catMult*=(1+Game.milkProgress*0.125*milkMult);
+	if (Game.Has('Kitten angels')) catMult*=(1+Game.milkProgress*0.1*milkMult);
+	
+	Game.cookiesMultByType['kittens']=catMult;
+	mult*=catMult;
+	
+	var eggMult=1;
+	if (Game.Has('Chicken egg')) eggMult*=1.01;
+	if (Game.Has('Duck egg')) eggMult*=1.01;
+	if (Game.Has('Turkey egg')) eggMult*=1.01;
+	if (Game.Has('Quail egg')) eggMult*=1.01;
+	if (Game.Has('Robin egg')) eggMult*=1.01;
+	if (Game.Has('Ostrich egg')) eggMult*=1.01;
+	if (Game.Has('Cassowary egg')) eggMult*=1.01;
+	if (Game.Has('Salmon roe')) eggMult*=1.01;
+	if (Game.Has('Frogspawn')) eggMult*=1.01;
+	if (Game.Has('Shark egg')) eggMult*=1.01;
+	if (Game.Has('Turtle egg')) eggMult*=1.01;
+	if (Game.Has('Ant larva')) eggMult*=1.01;
+	if (Game.Has('Century egg'))
+	{
+		//the boost increases a little every day, with diminishing returns up to +10% on the 100th day
+		var day=Math.floor((Date.now()-Game.startDate)/1000/10)*10/60/60/24;
+		day=Math.min(day,100);
+		eggMult*=1+(1-Math.pow(1-day/100,3))*0.1;
+	}
+	
+	Game.cookiesMultByType['eggs']=eggMult;
+	mult*=eggMult;
+	
+	if (Game.Has('Sugar baking')) mult*=(1+Math.min(100,Game.lumps)*0.01);
+	
+	if (Game.hasAura('Radiant Appetite')) mult*=2;
+	
+	if (Game.hasAura('Dragon\'s Fortune'))
+	{
+		var n=Game.shimmerTypes['golden'].n;
+		for (var i=0;i<n;i++){mult*=2.23;}
+		//old behavior
+		/*var buffs=0;
+		for (var i in Game.buffs)
+		{buffs++;}
+		mult*=1+(0.07)*buffs;*/
+	}
+	
+	var rawCookiesPs=Game.cookiesPs*mult;
+	for (var i in Game.CpsAchievements)
+	{
+		if (rawCookiesPs>=Game.CpsAchievements[i].threshold) Game.Win(Game.CpsAchievements[i].name);
+	}
+	
+	name=Game.bakeryName.toLowerCase();
+	if (name=='orteil') mult*=0.99;
+	else if (name=='ortiel') mult*=0.98;//or so help me
+
+	if (name == "opti") mult *= 0.99;
+	if (name == "xalum") mult *= 0.98;
+	
+	var sucking=0;
+	for (var i in Game.wrinklers)
+	{
+		if (Game.wrinklers[i].phase==2)
+		{
+			sucking++;
+		}
+	}
+	var suckRate=1/20;//each wrinkler eats a twentieth of your CpS
+	suckRate*=Game.eff('wrinklerEat');
+	
+	Game.cpsSucked=sucking*suckRate;
+	
+	
+	if (Game.Has('Elder Covenant')) mult*=0.95;
+	
+	if (Game.Has('Golden switch [off]'))
+	{
+		var goldenSwitchMult=1.5;
+		if (Game.Has('Residual luck'))
+		{
+			var upgrades=Game.goldenCookieUpgrades;
+			for (var i in upgrades) {if (Game.Has(upgrades[i])) goldenSwitchMult+=0.1;}
+		}
+		mult*=goldenSwitchMult;
+	}
+	if (Game.Has('Shimmering veil [off]'))
+	{
+		var veilMult=0.5;
+		if (Game.Has('Reinforced membrane')) veilMult+=0.1;
+		mult*=1+veilMult;
+	}
+	if (Game.Has('Magic shenanigans')) mult*=1000;
+	if (Game.Has('Occult obstruction')) mult*=0;
+	
+	for (var i in Game.customCpsMult) {mult*=Game.customCpsMult[i]();}
+	
+	
+	//cps without golden cookie effects
+	Game.unbuffedCps=Game.cookiesPs*mult;
+	
+	for (var i in Game.buffs)
+	{
+		if (typeof Game.buffs[i].multCpS != 'undefined') mult*=Game.buffs[i].multCpS;
+	}
+	
+	Game.globalCpsMult=mult;
+	Game.cookiesPs*=Game.globalCpsMult;
+	
+	//if (Game.hasBuff('Cursed finger')) Game.cookiesPs=0;
+	
+	Game.computedMouseCps=Game.mouseCps();
+	
+	Game.computeLumpTimes();
+	
+	Game.recalculateGains=0;
 }
 
 //Borrowing some code from the Darky Achievements Package to save data, massive props to the writer of these functions
