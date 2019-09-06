@@ -53,6 +53,9 @@ new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total he
 
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
 new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
+new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [3, 0, icons]);
+
+new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
@@ -74,6 +77,9 @@ Game.Achievements["Heavenly legacy"].order = 32000.83;
 
 Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
+Game.Achievements["Crumbling fortune"].order = 10000.271;
+
+Game.Achievements["Master of the elements"].order = 22400.170;
 
 
 Game.Achievements['Ironman mode'].order = 30200.08;
@@ -91,7 +97,28 @@ for (var i in Game.Achievements) {
 }
 
 Game.customChecks = [
-	function() {
+	function() { // Gathering Data
+		Game.minimumBuildingAmount = 'undefined';
+		for (var i in Game.Objects) {
+			var me = Game.Objects[i]
+			if (Game.minimumBuildingAmount == 'undefined' || Game.minimumBuildingAmount > me.amount) Game.minimumBuildingAmount = me.amount;
+		}
+
+		if (Game.experiencedSeasons ~= nil) {
+			if (Game.season != "" && !Game.experiencedSeasons[Game.season]) Game.experiencedSeasons[Game.season] = true; 
+		} else {
+			Game.experiencedSeasons = {
+	    		christmas: false,
+	    		halloween: false,
+	    		valentines: false,
+	    		easter: false,
+	    		fools: false,
+    		}
+		}
+
+		if (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools) Game.experiencedAllSeasons = true;
+	},
+	function() { // Awarding Achievements
 		if (Game.prestige >= 1) Game.Win("Heavenly beginnings");
 		if (Game.prestige >= mill) Game.Win("Heavenly bakery");
 		if (Game.prestige >= bill) Game.Win("Heavenly empire");
@@ -106,20 +133,18 @@ Game.customChecks = [
 		var n = Object.size(Game.shimmers);
 		if (n >= 2 && n > w && w > 0) Game.Win("Dichotomy");
 
+		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune")
+
+		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
+
 
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
 		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
 		if (Game.Objects["Farm"].minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
 		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
-
-		var minamount = 'undefined';
-		for (var i in Game.Objects) {
-			var me = Game.Objects[i]
-			if (minamount == 'undefined' || minamount > me.amount) minamount = me.amount;
-		}
-		if (minamount >= thou) Game.Win("Decacentennial")
-	}
+		if (Game.minimumBuildingAmount >= thou) Game.Win("Decacentennial")
+	},
 ]
 
 Game.BackupUpdateWrinklers = Game.UpdateWrinklers;
@@ -138,6 +163,18 @@ Game.UpdateWrinklers = function() {
 			Game.Win('Hemorrhage');
 		}
 	}
+}
+
+Game.BackupReset = Game.Reset;
+Game.Reset = function(hard) {
+	Game.experiencedSeasons = {
+		christmas: false,
+		halloween: false,
+		valentines: false,
+		easter: false,
+		fools: false,
+	}
+	Game.BackupReset(hard)
 }
 
 Game.CalculateGains=function() {
@@ -381,6 +418,7 @@ Game.CalculateGains=function() {
 var SavePrefix = "XalumPackage"
 
 XalumSaveConfig = function() {
+	XalumSave.experiencedSeasons = Game.experiencedSeasons
 	localStorage.setItem(SavePrefix, JSON.stringify(XalumSave));
 }
 
@@ -388,6 +426,15 @@ XalumSaveDefault = function() {
 	XalumSave = {}
     for (var i in Game.XalAchievements) {
         XalumSave[Game.XalAchievements[i].name] = 0;
+    }
+    if (!Game.experiencedSeasons) {
+    	Game.experiencedSeasons = {
+    		christmas: false,
+    		halloween: false,
+    		valentines: false,
+    		easter: false,
+    		fools: false,
+    	}
     }
     XalumSaveConfig();
 }
@@ -406,6 +453,7 @@ XalumLoadConfig = function() {
 	            }
 	        }
         }
+        Game.experiencedSeasons = XalumSave.experiencedSeasons
     }
     else {
         XalumSaveDefault();
