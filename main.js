@@ -42,7 +42,7 @@ Game.Win = function(what) {
 }
 
 
-new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b></b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1000000000000000000000</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000000000000000000000000</b> cookies.', [0, 0, icons]);
 
@@ -107,16 +107,10 @@ Game.customChecks = [
 		if (Game.experiencedSeasons) {
 			if (Game.season != "" && !Game.experiencedSeasons[Game.season]) Game.experiencedSeasons[Game.season] = true; 
 		} else {
-			Game.experiencedSeasons = {
-	    		christmas: false,
-	    		halloween: false,
-	    		valentines: false,
-	    		easter: false,
-	    		fools: false,
-    		}
+			Game.experiencedSeasons = XalumSave.experiencedSeasons
 		}
 
-		if (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools) Game.experiencedAllSeasons = true;
+		Game.experiencedAllSeasons = (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools);
 	},
 	function() { // Awarding Achievements
 		if (Game.prestige >= 1) Game.Win("Heavenly beginnings");
@@ -425,7 +419,7 @@ XalumSaveConfig = function() {
 XalumSaveDefault = function() {
 	XalumSave = {}
     for (var i in Game.XalAchievements) {
-        XalumSave[Game.XalAchievements[i].name] = 0;
+        XalumSave.achivements[Game.XalAchievements[i].name] = 0;
     }
     if (!Game.experiencedSeasons) {
     	Game.experiencedSeasons = {
@@ -445,10 +439,10 @@ XalumLoadConfig = function() {
         for (var i in Game.Achievements) {
         	if (Game.Achievements[i].xalum == 1) {
 	            var me = Game.Achievements[i];
-	            if (typeof XalumSave[me.name] === 'undefined') {
-	                XalumSave[me.name] = 0;
+	            if (typeof XalumSave.achievements[me.name] === 'undefined') {
+	                XalumSave.achievements[me.name] = 0;
 	                XalumSaveConfig();
-	            } else if (XalumSave[me.name] == 1) {
+	            } else if (XalumSave.achievements[me.name] == 1) {
 	                Game.Win(me.name);
 	            }
 	        }
