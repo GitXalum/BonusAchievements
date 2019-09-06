@@ -418,6 +418,7 @@ XalumSaveConfig = function() {
 
 XalumSaveDefault = function() {
 	XalumSave = {}
+	XalumSave.achievements = {}
     for (var i in Game.XalAchievements) {
         XalumSave.achievements[Game.XalAchievements[i].name] = 0;
     }
