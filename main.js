@@ -1,6 +1,23 @@
 var mod = "https://gitxalum.github.io/BonusAchievements/main.js"
 var icons = "https://gitxalum.github.io/BonusAchievements/icons.png"
 
+var thou = 1000;
+var mill = thou * 1000;
+var bill = mill * 1000;
+var tril = bill * 1000;
+var quad = tril * 1000;
+var quin = quad * 1000;
+var sext = quin * 1000;
+var sept = sext * 1000;
+var octi = sept * 1000;
+var noni = octi * 1000;
+var deci = noni * 1000;
+var unde = deci * 1000;
+var duod = unde * 1000;
+var tred = duod * 1000;
+var quat = tred * 1000;
+var quid = quat * 1000;
+
 Object.size = function(obj) {
 	var size = 0;
 	for (var i in obj) {
@@ -46,14 +63,40 @@ Game.Achievements["Heavenly legacy"].order = 32000.83;
 
 Game.XalAchievements = {};
 for (var i in Game.Achievements) {
-	if (Game.Achievements[i].xal == 1) {
+	if (Game.Achievements[i].xalum == 1) {
 		Game.XalAchievements[Object.size(Game.XalAchievements)] = Game.Achievements[i]
+	}
+}
+
+Game.customChecks = [
+	function() {
+		if (Game.prestige >= 1) Game.Win("Heavenly beginnings");
+		if (Game.prestige >= mill) Game.Win("Heavenly bakery");
+		if (Game.prestige >= bill) Game.Win("Heavenly empire");
+		if (Game.prestige >= tril) Game.Win("Heavenly legacy");
+	}
+]
+
+Game.BackupUpdateWrinklers = Game.UpdateWrinklers;
+Game.UpdateWrinklers = function() {
+	var popped = Game.wrinklersPopped;
+	var bank = Game.cookies;
+	Game.BackupUpdateWrinklers();
+	if (popped < Game.wrinklersPopped) {
+		if (Game.cookies - bank >= tril) {
+			Game.Win('Stomachache');
+		}
+		if (Game.cookies - bank >= sext) {
+			Game.Win('Dyspepsia');
+		}
+		if (Game.cookies - bank >= noni) {
+			Game.Win('Hemorrhage');
+		}
 	}
 }
 
 //Borrowing some code from the Darky Achievements Package to save data, massive props to the writer of these functions
 //Names will be changed in the hope that our projects will be compatible
-//Additional stuff will be added here so that upgrades can be stored too
 
 var SavePrefix = "XalumPackage"
 
