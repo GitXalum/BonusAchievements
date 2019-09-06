@@ -51,6 +51,17 @@ new Game.AddAchievement("Heavenly bakery", "Obtain <b>1 million</b> total heaven
 new Game.AddAchievement("Heavenly empire", "Obtain <b>1 billion</b> total heavenly chips.<q>Incredible.</q>", [20, 7]);
 new Game.AddAchievement("Heavenly legacy", "Obtain <b>1 trillion</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
 
+new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
+new Game.AchievementXal("Dichotomy", "Have both a golden cookie, and wrath cookie effect active <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [0, 1, icons]);
+
+
+new Game.AchievementXal('Ironman Mode', 'Get to <b>1 quadrillion</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
+new Game.AchievementXal("Decacentennial", "Have at least <b>1000 of everything</b>.<q>You had to go and do it didn't you, people like you really have issues.</q>", [1, 1, icons]); Game.last.pool = "shadow";
+new Game.AchievementXal("Modded god complex", "Name yourself <b>Xalum</b>.<div class='warning'>Note : modded usurpers incur a -2% CpS penalty until they rename themselves something else.</div><q>Come on now that\'s still not you.</q>", [2, 1, icons]); Game.last.pool = "shadow";
+new Game.AchievementXal("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
+new Game.AchievementXal("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
+new Game.AchievementXal("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
+
 Game.Achievements['Stomachache'].order = 21000.108;
 Game.Achievements['Dyspepsia'].order = 21000.109;
 Game.Achievements['Hemorrhage'].order = 21000.110;
@@ -59,6 +70,9 @@ Game.Achievements["Heavenly beginnings"].order = 32000.80;
 Game.Achievements["Heavenly bakery"].order = 32000.81;
 Game.Achievements["Heavenly empire"].order = 32000.82;
 Game.Achievements["Heavenly legacy"].order = 32000.83;
+
+Game.Achievements["Hattrick"].order = 10000.270;
+Game.Achievements["Dichotomy"].order = 10000.271;
 
 
 Game.XalAchievements = {};
@@ -74,6 +88,15 @@ Game.customChecks = [
 		if (Game.prestige >= mill) Game.Win("Heavenly bakery");
 		if (Game.prestige >= bill) Game.Win("Heavenly empire");
 		if (Game.prestige >= tril) Game.Win("Heavenly legacy");
+
+		if (Object.size(Game.buffs) >= 3) Game.Win("Hattrick");
+
+		var w = 0;
+		for (var i in Game.shimmers) {
+			if (Game.shimmers[i].wrath == 1) w ++;
+		}
+		var n = Object.size(Game.shimmers);
+		if (n >= 2 and n > w and w > 0) Game.Win("Dichotomy");
 	}
 ]
 
