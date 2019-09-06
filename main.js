@@ -36,7 +36,7 @@ Game.WinBackup = Game.Win
 Game.Win = function(what) {
 	Game.WinBackup(what);
 	if (typeof Game.Achievements[what] !== 'undefined' && Game.Achievements[what].xalum == 1) {
-        XalumSave[what] = 1;
+        XalumSave.achievements[what] = 1;
         XalumSaveConfig();
     }
 }
