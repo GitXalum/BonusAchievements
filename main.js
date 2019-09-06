@@ -24,11 +24,13 @@ Game.Win = function(what) {
     }
 }
 
-new Game.AchievementXal('Stomachache', 'Burst a wrinkler containing <b>1 trillion</b> cookies.', [0, 0, icons]);
-new Game.AchievementXal('Dyspepsia', 'Burst a wrinkler containing <b>1 sextillion</b> cookies.', [0, 0, icons]);
-new Game.AchievementXal('Hemorrhage', 'Burst a wrinkler containing <b>1 nonillion</b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1 trillion</b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1 sextillion</b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1 nonillion</b> cookies.', [0, 0, icons]);
 
-
+Game.Achievements['Stomachache'].order = 21000.108;
+Game.Achievements['Dyspepsia'].order = 21000.109;
+Game.Achievements['Hemorrhage'].order = 21000.110;
 
 
 Game.XalAchievements = {};
