@@ -111,7 +111,7 @@ Game.customChecks = [
 		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
 		if (Game.Objects["Farm"].minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
-		if (Game.unbuffedCps >= trill && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
+		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
 
 		var minamount = 'undefined';
 		for (var i in Game.Objects) {
