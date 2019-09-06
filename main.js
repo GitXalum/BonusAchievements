@@ -52,7 +52,7 @@ new Game.AddAchievement("Heavenly empire", "Obtain <b>1 billion</b> total heaven
 new Game.AddAchievement("Heavenly legacy", "Obtain <b>1 trillion</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
 
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
-new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie effect active <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [0, 1, icons]);
+new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie effect active <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
 
 
 new Game.AddAchievement('Ironman Mode', 'Get to <b>1 quadrillion</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
