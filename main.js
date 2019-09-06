@@ -76,7 +76,7 @@ Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
 
 
-Game.Achievements['Ironman Mode'].order = 30200.08;
+Game.Achievements['Ironman mode'].order = 30200.08;
 Game.Achievements["Decacentennial"].order = 32207.1;
 Game.Achievements["Modded god complex"].order = 30200.1592;
 Game.Achievements["Opti complex"].order = 30200.1591;
