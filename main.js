@@ -24,13 +24,24 @@ Game.Win = function(what) {
     }
 }
 
+
 new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1 trillion</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1 sextillion</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1 nonillion</b> cookies.', [0, 0, icons]);
 
+new Game.AddAchievement("Heavenly beginnings", "Obtain a heavenly chip.<q>Impressive.</q>", [2, 0, icons]);
+new Game.AddAchievement("Heavenly bakery", "Obtain <b>1 million</b> total heavenly chips.<q>Amazing.</q>", [19, 7]);
+new Game.AddAchievement("Heavenly empire", "Obtain <b>1 billion</b> total heavenly chips.<q>Incredible.</q>", [20, 7]);
+new Game.AddAchievement("Heavenly legacy", "Obtain <b>1 trillion</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
+
 Game.Achievements['Stomachache'].order = 21000.108;
 Game.Achievements['Dyspepsia'].order = 21000.109;
 Game.Achievements['Hemorrhage'].order = 21000.110;
+
+Game.Achievements["Heavenly beginnings"].order = 32000.80;
+Game.Achievements["Heavenly bakery"].order = 32000.81;
+Game.Achievements["Heavenly empire"].order = 32000.82;
+Game.Achievements["Heavenly legacy"].order = 32000.83;
 
 
 Game.XalAchievements = {};
