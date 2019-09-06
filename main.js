@@ -419,7 +419,7 @@ XalumSaveConfig = function() {
 XalumSaveDefault = function() {
 	XalumSave = {}
     for (var i in Game.XalAchievements) {
-        XalumSave.achivements[Game.XalAchievements[i].name] = 0;
+        XalumSave.achievements[Game.XalAchievements[i].name] = 0;
     }
     if (!Game.experiencedSeasons) {
     	Game.experiencedSeasons = {
