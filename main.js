@@ -104,7 +104,7 @@ Game.customChecks = [
 			if (Game.minimumBuildingAmount == 'undefined' || Game.minimumBuildingAmount > me.amount) Game.minimumBuildingAmount = me.amount;
 		}
 
-		if (Game.experiencedSeasons ~= nil) {
+		if (Game.experiencedSeasons != nil) {
 			if (Game.season != "" && !Game.experiencedSeasons[Game.season]) Game.experiencedSeasons[Game.season] = true; 
 		} else {
 			Game.experiencedSeasons = {
