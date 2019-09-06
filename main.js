@@ -1,5 +1,5 @@
-var mod = "https://github.com/GitXalum/BonusAchievements/blob/master/main.js"
-var icons = "https://github.com/GitXalum/BonusAchievements/blob/master/icons.png"
+var mod = "https://gitxalum.github.io/BonusAchievements/main.js"
+var icons = "https://gitxalum.github.io/BonusAchievements/icons.png"
 
 Object.size = function(obj) {
 	var size = 0;
