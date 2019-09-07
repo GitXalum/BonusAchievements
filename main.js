@@ -83,6 +83,8 @@ Game.Achievements["Crumbling fortune"].order = 10000.271;
 
 Game.Achievements["Master of the elements"].order = 22400.170;
 
+Game.Achievements["Earl of creation"].order = 5000.128;
+
 
 Game.Achievements['Ironman mode'].order = 30200.08;
 Game.Achievements["Decacentennial"].order = 32207.1;
