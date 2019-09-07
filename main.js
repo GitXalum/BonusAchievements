@@ -117,6 +117,9 @@ Game.customChecks = [
 		}
 
 		Game.experiencedAllSeasons = (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools);
+
+
+		XalumSave.experiencedSeasons = Game.experiencedSeasons
 	},
 	function() { // Awarding Achievements
 		if (Game.prestige >= 1) Game.Win("Heavenly beginnings");
@@ -420,7 +423,6 @@ Game.CalculateGains=function() {
 var SavePrefix = "XalumPackage"
 
 XalumSaveConfig = function() {
-	XalumSave.experiencedSeasons = Game.experiencedSeasons
 	localStorage.setItem(SavePrefix, JSON.stringify(XalumSave));
 }
 
@@ -455,6 +457,15 @@ XalumLoadConfig = function() {
 	                Game.Win(me.name);
 	            }
 	        }
+        }
+        if (!XalumSave.experiencedSeasons) {
+        	XalumSave.experiencedSeasons = {
+	    		christmas: false,
+	    		halloween: false,
+	    		valentines: false,
+	    		easter: false,
+	    		fools: false,
+	    	}
         }
         Game.experiencedSeasons = XalumSave.experiencedSeasons
     }
