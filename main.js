@@ -57,6 +57,8 @@ new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [
 
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
+new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
+
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Decacentennial", "Have at least <b>1000 of everything</b>.<q>You had to go and do it didn't you, people like you really have issues.</q>", [1, 1, icons]); Game.last.pool = "shadow";
@@ -99,9 +101,11 @@ for (var i in Game.Achievements) {
 Game.customChecks = [
 	function() { // Gathering Data
 		Game.minimumBuildingAmount = 'undefined';
+		Game.maximumBuildingAmount = 'undefined';
 		for (var i in Game.Objects) {
 			var me = Game.Objects[i]
 			if (Game.minimumBuildingAmount == 'undefined' || Game.minimumBuildingAmount > me.amount) Game.minimumBuildingAmount = me.amount;
+			if (Game.maximumBuildingAmount == 'undefined' || Game.maximumBuildingAmount < me.amount) Game.maximumBuildingAmount = me.amount;
 		}
 
 		if (Game.experiencedSeasons) {
@@ -130,6 +134,8 @@ Game.customChecks = [
 		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune")
 
 		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
+
+		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
 
 
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
