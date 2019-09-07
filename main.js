@@ -421,6 +421,7 @@ Game.CalculateGains=function() {
 //Names will be changed in the hope that our projects will be compatible
 
 var SavePrefix = "XalumPackage"
+var XalumPermaSave = {}
 
 XalumSaveConfig = function() {
 	localStorage.setItem(SavePrefix, JSON.stringify(XalumPermaSave));
@@ -447,6 +448,7 @@ XalumSaveDefault = function() {
 XalumLoadConfig = function() {
     if (localStorage.getItem(SavePrefix) != null) {
         XalumSave = JSON.parse(localStorage.getItem(SavePrefix));
+        XalumPermaSave = XalumSave;
         for (var i in Game.Achievements) {
         	if (Game.Achievements[i].xalum == 1) {
 	            var me = Game.Achievements[i];
