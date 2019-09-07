@@ -423,14 +423,14 @@ Game.CalculateGains=function() {
 var SavePrefix = "XalumPackage"
 
 XalumSaveConfig = function() {
-	localStorage.setItem(SavePrefix, JSON.stringify(XalumSave));
+	localStorage.setItem(SavePrefix, JSON.stringify(XalumPermaSave));
 }
 
 XalumSaveDefault = function() {
-	XalumSave = {}
-	XalumSave.achievements = {}
+	XalumPermaSave = {}
+	XalumPermaSave.achievements = {}
     for (var i in Game.XalAchievements) {
-        XalumSave.achievements[Game.XalAchievements[i].name] = 0;
+        XalumPermaSave.achievements[Game.XalAchievements[i].name] = 0;
     }
     if (!Game.experiencedSeasons) {
     	Game.experiencedSeasons = {
@@ -481,7 +481,13 @@ Game.HardReset = function(bypass) {
         XalumSaveDefault();
     }
 }
- 
+
+Game.BackupWriteSave = Game.WriteSave;
+Game.WriteSave = function(type) {
+	XalumPermaSave = XalumSave;
+	Game.BackupWriteSave(type);
+}
+
 XalumLoadConfig();
 
 Game.Win('Third-party');
