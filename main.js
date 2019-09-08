@@ -448,7 +448,7 @@ XalumSaveDefault = function() {
 XalumLoadConfig = function() {
     if (localStorage.getItem(SavePrefix) != null) {
         XalumSave = JSON.parse(localStorage.getItem(SavePrefix));
-        XalumPermaSave = XalumSave;
+        XalumPermaSave = JSON.parse(localStorage.getItem(SavePrefix));
         for (var i in Game.Achievements) {
         	if (Game.Achievements[i].xalum == 1) {
 	            var me = Game.Achievements[i];
@@ -486,7 +486,7 @@ Game.HardReset = function(bypass) {
 
 Game.BackupWriteSave = Game.WriteSave;
 Game.WriteSave = function(type) {
-	XalumPermaSave = XalumSave;
+	XalumPermaSave = Object.assign(Object.create(Object.getPrototypeOf(XalumSave)), XalumSave);
 	Game.BackupWriteSave(type);
 }
 
