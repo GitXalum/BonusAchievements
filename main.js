@@ -42,6 +42,7 @@ Game.Win = function(what) {
 }
 
 
+new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it's consumed any cookies.", [19, 8]);
 new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1000000000000000000000</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000000000000000000000000</b> cookies.', [0, 0, icons]);
@@ -68,6 +69,7 @@ new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log i
 new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
 
 
+Game.Achievements['Itchy trigger finger'].order = 21000.107;
 Game.Achievements['Stomachache'].order = 21000.108;
 Game.Achievements['Dyspepsia'].order = 21000.109;
 Game.Achievements['Hemorrhage'].order = 21000.110;
@@ -166,6 +168,9 @@ Game.UpdateWrinklers = function() {
 		}
 		if (Game.cookies - bank >= noni) {
 			Game.Win('Hemorrhage');
+		}
+		if (Game.cookies == bank) {
+			Game.Win("Itchy trigger finger");
 		}
 	}
 }
@@ -417,8 +422,6 @@ Game.CalculateGains=function() {
 	Game.recalculateGains=0;
 }
 
-//Borrowing some code from the Darky Achievements Package to save data, massive props to the writer of these functions
-//Names will be changed in the hope that our projects will be compatible
 
 var SavePrefix = "XalumPackage"
 var XalumPermaSave = {}
@@ -478,10 +481,10 @@ XalumLoadConfig = function() {
  
 Game.BackupHardReset = Game.HardReset;
 Game.HardReset = function(bypass) {
-    Game.BackupHardReset(bypass);
-    if (bypass == 2) {
+	if (bypass == 2) {
         XalumSaveDefault();
     }
+    Game.BackupHardReset(bypass);
 }
 
 Game.BackupWriteSave = Game.WriteSave;
