@@ -205,12 +205,12 @@ Game.Reset = function(hard) {
 }
 
 Game.BackupPopFunc = Game.shimmerTypes.golden.popFunc;
-Game.shimmerTypes.golden.popFunc = function(this) {
+Game.shimmerTypes.golden.popFunc = function(shim) {
 	if (me.wrath == 1) {
 		Game.wrathClicks ++;
 		XalumSave.wrathClicks ++;
 	}
-	Game.BackupPopFunc(this);
+	Game.BackupPopFunc(shim);
 }
 
 Game.CalculateGains=function() {
