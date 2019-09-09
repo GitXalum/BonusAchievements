@@ -54,8 +54,8 @@ new Game.AddAchievement("Heavenly empire", "Obtain <b>1000000000</b> total heave
 new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
 
 new Game.AddAchievement("Wrath cookie", "Click a <b>wrath cookie</b>.", [15, 5]);
-new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [0, 5, icons]);
-new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [0, 6, icons]);
+new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [5, 0, icons]);
+new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [6, 0, icons]);
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
 new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
 new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [3, 0, icons]);
@@ -64,7 +64,7 @@ new Game.AddAchievement("Master of the elements", "Experience every season in on
 
 new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
 
-new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.", [7, 0, icons]);
+new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
 
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
