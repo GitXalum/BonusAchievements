@@ -426,8 +426,7 @@ Game.CalculateGains=function() {
 	Game.recalculateGains=0;
 }
 
-Game.UpdateMenu=function()
-{
+Game.UpdateMenu=function() {
 	var str='';
 	if (Game.onMenu!='')
 	{
@@ -569,7 +568,7 @@ Game.UpdateMenu=function()
 		var pools={
 			'dungeon':'<b>Dungeon achievements</b> <small>(Not technically achievable yet.)</small>',
 			'shadow':'<b>Shadow achievements</b> <small>(These are feats that are either unfair or difficult to attain. They do not give milk.)</small>',
-			"custom":"<b>Custom achievements</b> <small>(These achievements are added via a mod, whilst not unfair to obtain they do not give milk to retain game balance.)</small>",
+			"custom":"<b>Custom achievements</b> <small>(These achievements are added via a mod, whilst not unfair or difficult to attain they do not give milk to retain game balance.)</small>",
 		};
 		for (var i in achievements)
 		{
@@ -731,6 +730,107 @@ Game.UpdateMenu=function()
 	/*AddEvent(l('selectionKeeper'),'mouseup',function(e){
 		console.log('selection:',window.getSelection());
 	});*/
+}
+
+Game.crate=function(me,context,forceClickStr,id) {
+	//produce a crate with associated tooltip for an upgrade or achievement
+	//me is an object representing the upgrade or achievement
+	//context can be "store", "ascend", "stats" or undefined
+	//forceClickStr changes what is done when the crate is clicked
+	//id is the resulting div's desired id
+	
+	var classes='crate';
+	var enabled=0;
+	var noFrame=0;
+	var attachment='top';
+	var neuromancy=0;
+	if (context=='stats' && (Game.Has('Neuromancy') || (Game.sesame && me.pool=='debug'))) neuromancy=1;
+	var mysterious=0;
+	var clickStr='';
+	
+	if (me.type=='upgrade')
+	{
+		var canBuy=(context=='store'?me.canBuy():true);
+		if (context=='stats' && me.bought==0 && !Game.Has('Neuromancy') && (!Game.sesame || me.pool!='debug')) return '';
+		else if (context=='stats' && (Game.Has('Neuromancy') || (Game.sesame && me.pool=='debug'))) neuromancy=1;
+		else if (context=='store' && !canBuy) enabled=0;
+		else if (context=='ascend' && me.bought==0) enabled=0;
+		else enabled=1;
+		if (me.bought>0) enabled=1;
+		
+		if (context=='stats' && !Game.prefs.crates) noFrame=1;
+		
+		classes+=' upgrade';
+		if (me.pool=='prestige') classes+=' heavenly';
+		
+		
+		if (neuromancy) clickStr='Game.UpgradesById['+me.id+'].toggle();';
+	}
+	else if (me.type=='achievement')
+	{
+		if (context=='stats' && me.won==0 && (me.pool!='normal' || me.pool!="custom")) return '';
+		else if (context!='stats') enabled=1;
+		
+		if (context=='stats' && !Game.prefs.crates) noFrame=1;
+		
+		classes+=' achievement';
+		if (me.pool=='shadow') classes+=' shadow';
+		if (me.won>0) enabled=1;
+		else mysterious=1;
+		if (!enabled) clickStr='Game.AchievementsById['+me.id+'].click();';
+		
+		if (neuromancy) clickStr='Game.AchievementsById['+me.id+'].toggle();';
+	}
+	
+	if (context=='store') attachment='store';
+	
+	if (forceClickStr) clickStr=forceClickStr;
+	
+	if (me.choicesFunction) classes+=' selector';
+	
+	
+	var icon=me.icon;
+	if (mysterious) icon=[0,7];
+	
+	if (me.iconFunction) icon=me.iconFunction();
+	
+	if (me.bought && context=='store') enabled=0;
+	
+	if (enabled) classes+=' enabled';// else classes+=' disabled';
+	if (noFrame) classes+=' noFrame';
+	
+	var text=[];
+	if (Game.sesame)
+	{
+		if (Game.debuggedUpgradeCpS[me.name] || Game.debuggedUpgradeCpClick[me.name])
+		{
+			text.push('x'+Beautify(1+Game.debuggedUpgradeCpS[me.name],2));text.push(Game.debugColors[Math.floor(Math.max(0,Math.min(Game.debugColors.length-1,Math.pow(Game.debuggedUpgradeCpS[me.name]/2,0.5)*Game.debugColors.length)))]);
+			text.push('x'+Beautify(1+Game.debuggedUpgradeCpClick[me.name],2));text.push(Game.debugColors[Math.floor(Math.max(0,Math.min(Game.debugColors.length-1,Math.pow(Game.debuggedUpgradeCpClick[me.name]/2,0.5)*Game.debugColors.length)))]);
+		}
+		if (Game.extraInfo) {text.push(Math.floor(me.order)+(me.power?'<br>P:'+me.power:''));text.push('#fff');}
+	}
+	var textStr='';
+	for (var i=0;i<text.length;i+=2)
+	{
+		textStr+='<div style="opacity:0.9;z-index:1000;padding:0px 2px;background:'+text[i+1]+';color:#000;font-size:10px;position:absolute;top:'+(i/2*10)+'px;left:0px;">'+text[i]+'</div>';
+	}
+	
+	return '<div'+
+	(clickStr!=''?(' '+Game.clickStr+'="'+clickStr+'"'):'')+
+	' class="'+classes+'" '+
+	Game.getDynamicTooltip(
+		'function(){return Game.crateTooltip(Game.'+(me.type=='upgrade'?'Upgrades':'Achievements')+'ById['+me.id+'],'+(context?'\''+context+'\'':'')+');}',
+		attachment,true
+	)+
+	(id?'id="'+id+'" ':'')+
+	'style="'+(mysterious?
+		'background-position:'+(-0*48)+'px '+(-7*48)+'px':
+		(icon[2]?'background-image:url('+icon[2]+');':'')+'background-position:'+(-icon[0]*48)+'px '+(-icon[1]*48)+'px')+';'+
+		((context=='ascend' && me.pool=='prestige')?'position:absolute;left:'+me.posX+'px;top:'+me.posY+'px;':'')+
+	'">'+
+	textStr+
+	(me.choicesFunction?'<div class="selectorCorner"></div>':'')+
+	'</div>';
 }
 
 
