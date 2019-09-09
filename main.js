@@ -64,7 +64,7 @@ new Game.AddAchievement("Master of the elements", "Experience every season in on
 
 new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
 
-new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.", [0, 7, icons]);
+new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.", [7, 0, icons]);
 
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
