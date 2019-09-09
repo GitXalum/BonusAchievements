@@ -54,7 +54,7 @@ new Game.AddAchievement("Heavenly empire", "Obtain <b>1000000000</b> total heave
 new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
 
 new Game.AddAchievement("Wrath cookie", "Click a <b>wrath cookie</b>.", [15, 5]);
-new Game.AddAchievement("", "Click <b>6 wrath cookies</b>.", [0, 5, icons]);
+new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [0, 5, icons]);
 new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [0, 6, icons]);
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
 new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
@@ -63,6 +63,8 @@ new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
 new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
+
+new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.", [0, 7, icons]);
 
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
@@ -83,6 +85,9 @@ Game.Achievements["Heavenly bakery"].order = 32000.81;
 Game.Achievements["Heavenly empire"].order = 32000.82;
 Game.Achievements["Heavenly legacy"].order = 32000.83;
 
+Game.Achievements["Wrath cookie"].order = 10000.090;
+Game.Achievements["Dodgy cookie"].order = 10000.091;
+Game.Achievements["Withering heights"].order = 10000.092;
 Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
 Game.Achievements["Crumbling fortune"].order = 10000.271;
@@ -90,6 +95,8 @@ Game.Achievements["Crumbling fortune"].order = 10000.271;
 Game.Achievements["Master of the elements"].order = 22400.170;
 
 Game.Achievements["Earl of creation"].order = 5000.128;
+
+Game.Achievements["Finder's keepers"].order = 61515.380;
 
 
 Game.Achievements['Ironman mode'].order = 30200.08;
@@ -133,6 +140,10 @@ Game.customChecks = [
 		if (Game.prestige >= bill) Game.Win("Heavenly empire");
 		if (Game.prestige >= tril) Game.Win("Heavenly legacy");
 
+
+		if (Game.wrathClicks >= 1) Game.Win("Wrath cookie");
+		if (Game.wrathClicks >= 6) Game.Win("Dodgy cookie");
+		if (Game.wrathClicks >= 66) Game.Win("Withering heights");
 		if (Object.size(Game.buffs) >= 3) Game.Win("Hattrick");
 
 		var w = 0;
@@ -148,11 +159,13 @@ Game.customChecks = [
 
 		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
 
+		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
+
 
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
 		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
-		if (Game.Objects["Farm"].minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
+		if (Game.Objects.Farm.minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
 		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
 		if (Game.minimumBuildingAmount >= thou) Game.Win("Decacentennial")
 	},
@@ -189,6 +202,15 @@ Game.Reset = function(hard) {
 		fools: false,
 	}
 	Game.BackupReset(hard)
+}
+
+Game.BackupPopFunc = Game.shimmerTypes.golden.popFunc
+Game.shimmerTypes.golden.popFunc = function(this) {
+	if (me.wrath == 1) {
+		Game.wrathClicks ++;
+		XalumSave.wrathClicks ++;
+	}
+	Game.BackupPopFunc(this);
 }
 
 Game.CalculateGains=function() {
@@ -884,7 +906,10 @@ XalumLoadConfig = function() {
 	    		fools: false,
 	    	}
         }
-        Game.experiencedSeasons = XalumSave.experiencedSeasons
+        if (!XalumSave.wrathClicks) XalumSave.wrathClicks = 0;
+
+        Game.experiencedSeasons = XalumSave.experiencedSeasons;
+        Game.wrathClicks = XalumSave.wrathClicks;
     }
     else {
         XalumSaveDefault();
