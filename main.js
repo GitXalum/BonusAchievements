@@ -43,18 +43,18 @@ Game.Win = function(what) {
 }
 
 Game.SilentWin = function(what) {
-	if (typeof what==='string')
-	{
-		if (Game.Achievements[what])
-		{
-			if (Game.Achievements[what].won==0)
-			{
-				var name=Game.Achievements[what].shortName?Game.Achievements[what].shortName:Game.Achievements[what].name;
+	if (typeof what==='string') {
+		if (Game.Achievements[what]) {
+			if (Game.Achievements[what].won==0) {
 				Game.Achievements[what].won=1;
 				if (Game.CountsAsAchievementOwned(Game.Achievements[what].pool)) Game.AchievementsOwned++;
 				Game.recalculateGains=1;
 			}
 		}
+		if (Game.Achievements[what].xalum == 1) {
+	        XalumSave.achievements[what] = 1;
+	        XalumSaveConfig();
+	    }
 	}
 	else {for (var i in what) {Game.SilentWin(what[i]);}}
 }
