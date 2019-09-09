@@ -204,7 +204,7 @@ Game.Reset = function(hard) {
 	Game.BackupReset(hard)
 }
 
-Game.BackupPopFunc = Game.shimmerTypes.golden.popFunc
+Game.BackupPopFunc = Game.shimmerTypes.golden.popFunc;
 Game.shimmerTypes.golden.popFunc = function(this) {
 	if (me.wrath == 1) {
 		Game.wrathClicks ++;
