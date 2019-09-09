@@ -768,7 +768,7 @@ Game.crate=function(me,context,forceClickStr,id) {
 	}
 	else if (me.type=='achievement')
 	{
-		if (context=='stats' && me.won==0 && (me.pool!='normal' || me.pool!="custom")) return '';
+		if (context=='stats' && me.won==0 && me.pool!='normal' && me.pool!="custom") return '';
 		else if (context!='stats') enabled=1;
 		
 		if (context=='stats' && !Game.prefs.crates) noFrame=1;
