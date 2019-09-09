@@ -42,6 +42,23 @@ Game.Win = function(what) {
     }
 }
 
+Game.SilentWin = function(what) {
+	if (typeof what==='string')
+	{
+		if (Game.Achievements[what])
+		{
+			if (Game.Achievements[what].won==0)
+			{
+				var name=Game.Achievements[what].shortName?Game.Achievements[what].shortName:Game.Achievements[what].name;
+				Game.Achievements[what].won=1;
+				if (Game.CountsAsAchievementOwned(Game.Achievements[what].pool)) Game.AchievementsOwned++;
+				Game.recalculateGains=1;
+			}
+		}
+	}
+	else {for (var i in what) {Game.SilentWin(what[i]);}}
+}
+
 
 new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it's consumed any cookies.", [19, 8]);
 new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
@@ -893,7 +910,7 @@ XalumLoadConfig = function() {
 	                XalumSave.achievements[me.name] = 0;
 	                XalumSaveConfig();
 	            } else if (XalumSave.achievements[me.name] == 1) {
-	                Game.Win(me.name);
+	                Game.SilentWin(me.name);
 	            }
 	        }
         }
