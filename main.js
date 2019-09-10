@@ -602,7 +602,7 @@ Game.UpdateMenu=function() {
 			if (!achievements[pool]) achievements[pool]='';
 			achievements[pool]+=Game.crate(me,'stats');
 			
-			if (me.pool = "custom") achievementsTotalCustom++;
+			if (me.pool == "custom") achievementsTotalCustom++;
 
 			if (me.won)
 			{
@@ -766,7 +766,7 @@ Game.UpdateMenu=function() {
 		'</div><div class="subsection">'+
 		'<div class="title">Achievements</div>'+
 		'<div class="listing"><b>Achievements unlocked :</b> '+achievementsOwned+'/'+achievementsTotal+' ('+Math.floor((achievementsOwned/achievementsTotal)*100)+'%)'+(achievementsOwnedOther>0?('<span style="font-weight:bold;font-size:10px;color:#70a;"> (+'+achievementsOwnedOther+')</span>'):'')+'</div>'+
-		'<div class="listing"><b>Custom achievements unlocked :</b>'+achievementsOwnedCustom+'/'+achievementsTotalCustom+' ('+Math.floor((achievementsOwnedCustom/achievementsTotalCustom)*100)+'%)</div>'+
+		'<div class="listing"><b>Custom achievements unlocked :</b> '+achievementsOwnedCustom+'/'+achievementsTotalCustom+' ('+Math.floor((achievementsOwnedCustom/achievementsTotalCustom)*100)+'%)</div>'+
 		(Game.cookiesMultByType['kittens']>1?('<div class="listing"><b>Kitten multiplier :</b> '+Beautify((Game.cookiesMultByType['kittens'])*100)+'%</div>'):'')+
 		'<div class="listing"><b>Milk :</b> '+milkName+'</div>'+
 		(milkStr!=''?'<div class="listing"><b>Milk flavors unlocked :</b></div><div>'+milkStr+'</div>':'')+
