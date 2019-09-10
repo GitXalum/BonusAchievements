@@ -81,6 +81,7 @@ new Game.AddAchievement("Master of the elements", "Experience every season in on
 
 new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
 
+new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
 new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
 
 
@@ -113,6 +114,7 @@ Game.Achievements["Master of the elements"].order = 22400.170;
 
 Game.Achievements["Earl of creation"].order = 5000.128;
 
+Game.Achievements["Farming simulator"].order = 61515.379;
 Game.Achievements["Finder's keepers"].order = 61515.380;
 
 
@@ -147,6 +149,7 @@ Game.customChecks = [
 		}
 
 		Game.experiencedAllSeasons = (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools);
+		Game.foundAllGardenUpgrades = (Game.Upgrades["Elderwort biscuits"].unlocked == 1 && Game.Upgrades["Bakeberry cookies"].unlocked == 1 && Game.Upgrades["Duketater cookies"].unlocked == 1 && Game.Upgrades["Green yeast digestives"].unlocked == 1 && Game.Upgrades["Wheat slims"].unlocked == 1 && Game.Upgrades["Fern tea"].unlocked == 1 && Game.Upgrades["Ichor syrup"].unlocked == 1)
 
 
 		XalumSave.experiencedSeasons = Game.experiencedSeasons
@@ -176,6 +179,7 @@ Game.customChecks = [
 
 		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
 
+		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
 		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
 
 
