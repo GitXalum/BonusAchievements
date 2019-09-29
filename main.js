@@ -1163,6 +1163,8 @@ Game.tickerL.addEventListener('click', function(event) {
 	Game.Ticker='';
 	Game.TickerClicks++;
 	if (Game.TickerClicks==50) {Game.Win('Tabloid addiction');}
+
+	Game.WinBackup("Good news")
 	
 	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
