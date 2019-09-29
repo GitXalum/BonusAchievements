@@ -841,7 +841,9 @@ Game.UpdateMenu=function() {
 		var achievements=[];
 		var achievementsOwned=0;
 		var achievementsOwnedOther=0;
+		var achievementsOwnedCustom=0;
 		var achievementsTotal=0;
+		var achievementsTotalCustom=0;
 		
 		var list=[];
 		for (var i in Game.Achievements)//sort the achievements
