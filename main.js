@@ -60,16 +60,6 @@ Game.SilentWin = function(what) {
 }
 
 
-new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it's consumed any cookies.", [19, 8]);
-new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
-new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1000000000000000000000</b> cookies.', [0, 0, icons]);
-new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000000000000000000000000</b> cookies.', [0, 0, icons]);
-
-new Game.AddAchievement("Heavenly beginnings", "Obtain a heavenly chip.<q>Impressive.</q>", [2, 0, icons]);
-new Game.AddAchievement("Heavenly bakery", "Obtain <b>1000000</b> total heavenly chips.<q>Amazing.</q>", [19, 7]);
-new Game.AddAchievement("Heavenly empire", "Obtain <b>1000000000</b> total heavenly chips.<q>Incredible.</q>", [20, 7]);
-new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
-
 new Game.AddAchievement("Wrath cookie", "Click a <b>wrath cookie</b>.", [15, 5]);
 new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [5, 0, icons]);
 new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [6, 0, icons]);
@@ -77,9 +67,26 @@ new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously."
 new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
 new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [3, 0, icons]);
 
+new Game.AddAchievement("Achievement not found", "Obtain <b>404 base game achievements</b>.<q>Refer to the manual to determine the exact cause of this error</q>", [0, 7]);
+
+new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it consumes any cookies.", [19, 8]);
+new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1000000000000000000000</b> cookies.', [0, 0, icons]);
+new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000000000000000000000000</b> cookies.', [0, 0, icons]);
+
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
-new Game.AddAchievement('Earl of creation', 'Own <b>1000</b> of any building.', [4, 0, icons]);
+new Game.AddAchievement("Earl of creation", "Own <b>1000</b> of any building.", [4, 0, icons]);
+new Game.AddAchievement("Euclidean geometry", "Own <b>500</b> upgrades and <b>5000</b> buildings.<q>The giants look up to you, you have gone far beyond what they could ever have hoped to, the world is in your hands.</q>", [9, 0, icons]);
+
+new Game.AddAchievement("Heavenly beginnings", "Obtain a heavenly chip.<q>Impressive.</q>", [2, 0, icons]);
+new Game.AddAchievement("Heavenly bakery", "Obtain <b>1000000</b> total heavenly chips.<q>Amazing.</q>", [19, 7]);
+new Game.AddAchievement("Heavenly empire", "Obtain <b>1000000000</b> total heavenly chips.<q>Incredible.</q>", [20, 7]);
+new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total heavenly chips.<q>Magnifique.</q>", [28, 12]);
+
+new Game.AddAchievement("Good news", "Click a <b>fortune</b>.", [29, 8]);
+new Game.AddAchievement("Lucky day", "Click <b>7 fortunes</b>.", [29, 8]);
+new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [29, 8]);
 
 new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
 new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
@@ -93,15 +100,7 @@ new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log i
 new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
 
 
-Game.Achievements['Itchy trigger finger'].order = 21000.107;
-Game.Achievements['Stomachache'].order = 21000.108;
-Game.Achievements['Dyspepsia'].order = 21000.109;
-Game.Achievements['Hemorrhage'].order = 21000.110;
 
-Game.Achievements["Heavenly beginnings"].order = 32000.80;
-Game.Achievements["Heavenly bakery"].order = 32000.81;
-Game.Achievements["Heavenly empire"].order = 32000.82;
-Game.Achievements["Heavenly legacy"].order = 32000.83;
 
 Game.Achievements["Wrath cookie"].order = 10000.090;
 Game.Achievements["Dodgy cookie"].order = 10000.091;
@@ -110,9 +109,26 @@ Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
 Game.Achievements["Crumbling fortune"].order = 10000.271;
 
+Game.Achievements["Achievement not found"].order = 11000.244;
+
+Game.Achievements['Itchy trigger finger'].order = 21000.107;
+Game.Achievements['Stomachache'].order = 21000.108;
+Game.Achievements['Dyspepsia'].order = 21000.109;
+Game.Achievements['Hemorrhage'].order = 21000.110;
+
 Game.Achievements["Master of the elements"].order = 22400.170;
 
 Game.Achievements["Earl of creation"].order = 5000.128;
+Game.Achievements["Euclidean geometry"].order = 6000.44;
+
+Game.Achievements["Heavenly beginnings"].order = 32000.80;
+Game.Achievements["Heavenly bakery"].order = 32000.81;
+Game.Achievements["Heavenly empire"].order = 32000.82;
+Game.Achievements["Heavenly legacy"].order = 32000.83;
+
+Game.Achievements["Good news"].order = 33000.450;
+Game.Achievements["Lucky day"].order = 33000.451;
+Game.Achievements["Fortunate"].order = 33000.452;
 
 Game.Achievements["Farming simulator"].order = 61515.379;
 Game.Achievements["Finder's keepers"].order = 61515.380;
@@ -174,9 +190,12 @@ Game.customChecks = [
 		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
 
 		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
+		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
 		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
+
+		if (Game.AchievementsOwned >= 404) Game.Win("Achievement not found");
 
 
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
@@ -184,7 +203,7 @@ Game.customChecks = [
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
 		if (Game.Objects.Farm.minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
 		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
-		if (Game.minimumBuildingAmount >= thou) Game.Win("Decacentennial")
+		if (Game.minimumBuildingAmount >= 1000) Game.Win("Decacentennial")
 	},
 ]
 
@@ -274,8 +293,10 @@ Game.shimmerTypes.golden.popFunc = function(me) {
 	
 	if ((me.wrath==0 && Math.random()<0.15) || Math.random()<0.05)
 	{
-		if (Game.hasAura('Reaper of Fields')) list.push('dragon harvest');
-		if (Game.hasAura('Dragonflight')) list.push('dragonflight');
+		//if (Game.hasAura('Reaper of Fields')) list.push('dragon harvest');
+		if (Math.random()<Game.auraMult('Reaper of Fields')) list.push('dragon harvest');
+		//if (Game.hasAura('Dragonflight')) list.push('dragonflight');
+		if (Math.random()<Game.auraMult('Dragonflight')) list.push('dragonflight');
 	}
 	
 	if (this.last!='' && Math.random()<0.8 && list.indexOf(this.last)!=-1) list.splice(list.indexOf(this.last),1);//80% chance to force a different one
@@ -297,7 +318,8 @@ Game.shimmerTypes.golden.popFunc = function(me) {
 	if (Game.Has('Lucky number')) effectDurMod*=1.01;
 	if (Game.Has('Green yeast digestives')) effectDurMod*=1.01;
 	if (Game.Has('Lucky payout')) effectDurMod*=1.01;
-	if (Game.hasAura('Epoch Manipulator')) effectDurMod*=1.05;
+	//if (Game.hasAura('Epoch Manipulator')) effectDurMod*=1.05;
+	effectDurMod*=1+Game.auraMult('Epoch Manipulator')*0.05;
 	if (!me.wrath) effectDurMod*=Game.eff('goldenCookieEffDur');
 	else effectDurMod*=Game.eff('wrathCookieEffDur');
 	
@@ -311,8 +333,10 @@ Game.shimmerTypes.golden.popFunc = function(me) {
 	
 	//effect multiplier (from lucky etc)
 	var mult=1;
-	if (me.wrath>0 && Game.hasAura('Unholy Dominion')) mult*=1.1;
-	else if (me.wrath==0 && Game.hasAura('Ancestral Metamorphosis')) mult*=1.1;
+	//if (me.wrath>0 && Game.hasAura('Unholy Dominion')) mult*=1.1;
+	//else if (me.wrath==0 && Game.hasAura('Ancestral Metamorphosis')) mult*=1.1;
+	if (me.wrath>0) mult*=1+Game.auraMult('Unholy Dominion')*0.1;
+	else if (me.wrath==0) mult*=1+Game.auraMult('Ancestral Metamorphosis')*0.1;
 	if (Game.Has('Green yeast digestives')) mult*=1.01;
 	if (!me.wrath) mult*=Game.eff('goldenCookieGain');
 	else mult*=Game.eff('wrathCookieGain');
@@ -516,6 +540,9 @@ Game.CalculateGains=function() {
 	if (Game.Has('An itchy sweater')) mult*=1.01;
 	if (Game.Has('Santa\'s dominion')) mult*=1.2;
 	
+	if (Game.Has('Fortune #100')) mult*=1.01;
+	if (Game.Has('Fortune #101')) mult*=1.07;
+	
 	var buildMult=1;
 	if (Game.hasGod)
 	{
@@ -564,7 +591,8 @@ Game.CalculateGains=function() {
 	Game.milkProgress=Game.AchievementsOwned/25;
 	var milkMult=1;
 	if (Game.Has('Santa\'s milk and cookies')) milkMult*=1.05;
-	if (Game.hasAura('Breath of Milk')) milkMult*=1.05;
+	//if (Game.hasAura('Breath of Milk')) milkMult*=1.05;
+	milkMult*=1+Game.auraMult('Breath of Milk')*0.05;
 	if (Game.hasGod)
 	{
 		var godLvl=Game.hasGod('mother');
@@ -588,7 +616,9 @@ Game.CalculateGains=function() {
 	if (Game.Has('Kitten assistants to the regional manager')) catMult*=(1+Game.milkProgress*0.175*milkMult);
 	if (Game.Has('Kitten marketeers')) catMult*=(1+Game.milkProgress*0.15*milkMult);
 	if (Game.Has('Kitten analysts')) catMult*=(1+Game.milkProgress*0.125*milkMult);
+	if (Game.Has('Kitten executives')) catMult*=(1+Game.milkProgress*0.115*milkMult);
 	if (Game.Has('Kitten angels')) catMult*=(1+Game.milkProgress*0.1*milkMult);
+	if (Game.Has('Fortune #103')) catMult*=(1+Game.milkProgress*0.05*milkMult);
 	
 	Game.cookiesMultByType['kittens']=catMult;
 	mult*=catMult;
@@ -619,12 +649,14 @@ Game.CalculateGains=function() {
 	
 	if (Game.Has('Sugar baking')) mult*=(1+Math.min(100,Game.lumps)*0.01);
 	
-	if (Game.hasAura('Radiant Appetite')) mult*=2;
+	//if (Game.hasAura('Radiant Appetite')) mult*=2;
+	mult*=1+Game.auraMult('Radiant Appetite');
 	
-	if (Game.hasAura('Dragon\'s Fortune'))
+	if (true)// || Game.hasAura('Dragon\'s Fortune'))
 	{
 		var n=Game.shimmerTypes['golden'].n;
-		for (var i=0;i<n;i++){mult*=2.23;}
+		var auraMult=Game.auraMult('Dragon\'s Fortune');
+		for (var i=0;i<n;i++){mult*=1+auraMult*1.23;}
 		//old behavior
 		/*var buffs=0;
 		for (var i in Game.buffs)
@@ -809,9 +841,7 @@ Game.UpdateMenu=function() {
 		var achievements=[];
 		var achievementsOwned=0;
 		var achievementsOwnedOther=0;
-		var achievementsOwnedCustom=0;
 		var achievementsTotal=0;
-		var achievementsTotalCustom=0;
 		
 		var list=[];
 		for (var i in Game.Achievements)//sort the achievements
@@ -825,8 +855,7 @@ Game.UpdateMenu=function() {
 			else return 0;
 		}
 		list.sort(sortMap);
-		
-		
+
 		for (var i in list)
 		{
 			var me=list[i];
@@ -851,8 +880,8 @@ Game.UpdateMenu=function() {
 		var achievementsStr='';
 		var pools={
 			'dungeon':'<b>Dungeon achievements</b> <small>(Not technically achievable yet.)</small>',
-			'shadow':'<b>Shadow achievements</b> <small>(These are feats that are either unfair or difficult to attain. They do not give milk.)</small>',
 			"custom":"<b>Custom achievements</b> <small>(These achievements are added via a mod, whilst not unfair or difficult to attain they do not give milk to retain game balance.)</small>",
+			'shadow':'<b>Shadow achievements</b> <small>(These are feats that are either unfair or difficult to attain. They do not give milk.)</small>'
 		};
 		for (var i in achievements)
 		{
@@ -890,7 +919,7 @@ Game.UpdateMenu=function() {
 		}
 		var dragonStr='';
 		var frames=9;
-		var mainLevels=[0,4,8,21,22,23];
+		var mainLevels=[0,4,8,22,23,24];
 		if (Game.Has('A crumbly egg'))
 		{
 			for (var i=0;i<=mainLevels.length;i++)
@@ -1118,6 +1147,42 @@ Game.crate=function(me,context,forceClickStr,id) {
 	'</div>';
 }
 
+AddEvent(Game.tickerL,'click',function(event) {
+	Game.Ticker='';
+	Game.TickerClicks++;
+	if (Game.TickerClicks==50) {Game.Win('Tabloid addiction');}
+	
+	if (Game.TickerEffect && Game.TickerEffect.type=='fortune')
+	{
+		Game.FortuneClicks++;
+		if (Game.FortuneClicks >= 1) Game.Win("Good news");
+		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
+		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
+
+		PlaySound('snd/fortune.mp3',1);
+		Game.SparkleAt(Game.mouseX,Game.mouseY);
+		var effect=Game.TickerEffect.sub;
+		if (effect=='fortuneGC')
+		{
+			Game.Notify('Fortune!','A golden cookie has appeared.',[10,32]);
+			Game.fortuneGC=1;
+			var newShimmer=new Game.shimmer('golden',{noWrath:true});
+		}
+		else if (effect=='fortuneCPS')
+		{
+			Game.Notify('Fortune!','You gain <b>one hour</b> of your CpS (capped at double your bank).',[10,32]);
+			Game.fortuneCPS=1;
+			Game.Earn((Game.cookiesPs*60*60,Game.cookies));
+		}
+		else
+		{
+			Game.Notify(effect.name,'You\'ve unlocked a new upgrade.',effect.icon);
+			effect.unlock();
+		}
+	}
+	
+	Game.TickerEffect=0;
+});
 
 
 var SavePrefix = "XalumPackage"
@@ -1142,6 +1207,9 @@ XalumSaveDefault = function() {
     		fools: false,
     	}
     }
+    if (!Game.wrathClicks) Game.wrathClicks = 0;
+    if (!Game.FortuneClicks) Game.FortuneClicks = 0;
+
     XalumSaveConfig();
 }
 
@@ -1170,9 +1238,11 @@ XalumLoadConfig = function() {
 	    	}
         }
         if (!XalumSave.wrathClicks) XalumSave.wrathClicks = 0;
+        if (!XalumSave.FortuneClicks) XalumSave.FortuneClicks = 0;
 
         Game.experiencedSeasons = XalumSave.experiencedSeasons;
         Game.wrathClicks = XalumSave.wrathClicks;
+        Game.FortuneClicks = XalumSave.FortuneClicks;
     }
     else {
         XalumSaveDefault();
