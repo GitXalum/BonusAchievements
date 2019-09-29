@@ -69,6 +69,7 @@ new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [
 
 new Game.AddAchievement("Achievement not found", "Obtain <b>404 base game achievements</b>.<q>Refer to the manual to determine the exact cause of this error</q>", [0, 7]);
 
+new Game.AddAchievement("Circle of life", "Have 12 wrinklers feeding on your big cookie <b>simultaneously</b>.", [19, 8]);
 new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it consumes any cookies.", [19, 8]);
 new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
 new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>1000000000000000000000</b> cookies.', [0, 0, icons]);
@@ -111,6 +112,7 @@ Game.Achievements["Crumbling fortune"].order = 10000.271;
 
 Game.Achievements["Achievement not found"].order = 11000.244;
 
+Game.Achievements['Circle of life'].order = 21000.107;
 Game.Achievements['Itchy trigger finger'].order = 21000.107;
 Game.Achievements['Stomachache'].order = 21000.108;
 Game.Achievements['Dyspepsia'].order = 21000.109;
@@ -167,6 +169,11 @@ Game.customChecks = [
 		Game.experiencedAllSeasons = (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools);
 		Game.foundAllGardenUpgrades = (Game.Upgrades["Elderwort biscuits"].unlocked == 1 && Game.Upgrades["Bakeberry cookies"].unlocked == 1 && Game.Upgrades["Duketater cookies"].unlocked == 1 && Game.Upgrades["Green yeast digestives"].unlocked == 1 && Game.Upgrades["Wheat slims"].unlocked == 1 && Game.Upgrades["Fern tea"].unlocked == 1 && Game.Upgrades["Ichor syrup"].unlocked == 1)
 
+		Game.feedingWrinklers = 0
+		for (var i in Game.wrinklers) {
+			var me = Game.wrinklers[i]
+			if (me.sucked > 0) Game.feedingWrinklers++;
+		}
 
 		XalumSave.experiencedSeasons = Game.experiencedSeasons
 	},
@@ -186,6 +193,8 @@ Game.customChecks = [
 		if (n >= 2 && n > w && w > 0) Game.Win("Dichotomy");
 
 		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune")
+
+		if (Game.feedingWrinklers >= 12) Game.Win("Circle of life")
 
 		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
 
