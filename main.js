@@ -1158,7 +1158,8 @@ Game.crate=function(me,context,forceClickStr,id) {
 	'</div>';
 }
 
-Game.tickerL.click = function() {
+Game.tickerL.removeEventListener("click", Game.tickerL.click)
+Game.tickerL.addEventListener('click', function(event) {
 	Game.Ticker='';
 	Game.TickerClicks++;
 	if (Game.TickerClicks==50) {Game.Win('Tabloid addiction');}
@@ -1193,7 +1194,7 @@ Game.tickerL.click = function() {
 	}
 	
 	Game.TickerEffect=0;
-}
+}, false)
 
 
 var SavePrefix = "XalumPackage"
