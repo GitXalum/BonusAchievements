@@ -1158,13 +1158,41 @@ Game.crate=function(me,context,forceClickStr,id) {
 	'</div>';
 }
 
-Game.tickerL.onclick = function() {
+Game.tickerL.click = function() {
+	Game.Ticker='';
+	Game.TickerClicks++;
+	if (Game.TickerClicks==50) {Game.Win('Tabloid addiction');}
+	
 	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
+
 		Game.FortuneClicks++;
 		if (Game.FortuneClicks >= 1) Game.Win("Good news");
 		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
 		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
+
+		PlaySound('snd/fortune.mp3',1);
+		Game.SparkleAt(Game.mouseX,Game.mouseY);
+		var effect=Game.TickerEffect.sub;
+		if (effect=='fortuneGC')
+		{
+			Game.Notify('Fortune!','A golden cookie has appeared.',[10,32]);
+			Game.fortuneGC=1;
+			var newShimmer=new Game.shimmer('golden',{noWrath:true});
+		}
+		else if (effect=='fortuneCPS')
+		{
+			Game.Notify('Fortune!','You gain <b>one hour</b> of your CpS (capped at double your bank).',[10,32]);
+			Game.fortuneCPS=1;
+			Game.Earn((Game.cookiesPs*60*60,Game.cookies));
+		}
+		else
+		{
+			Game.Notify(effect.name,'You\'ve unlocked a new upgrade.',effect.icon);
+			effect.unlock();
+		}
 	}
+	
+	Game.TickerEffect=0;
 }
 
 
