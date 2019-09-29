@@ -1162,9 +1162,9 @@ Game.tickerL.removeEventListener("click", Game.tickerL.click)
 Game.tickerL.addEventListener('click', function(event) {
 	Game.Ticker='';
 	Game.TickerClicks++;
-	if (Game.TickerClicks==50) Game.Win('Tabloid addiction');
+	if (Game.TickerClicks==50) {Game.Win('Tabloid addiction');}
 	
-	if (Game.TickerEffect != 0 && Game.TickerEffect.type=='fortune') {
+	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
 		Game.FortuneClicks++;
 		Game.Win("Good news");
