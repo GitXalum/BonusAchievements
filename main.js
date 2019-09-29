@@ -1167,7 +1167,7 @@ Game.tickerL.addEventListener('click', function(event) {
 	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
 		Game.FortuneClicks++;
-		if (Game.FortuneClicks >= 1) Game.Win("Good news");
+		Game.Win("Good news");
 		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
 		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
 
