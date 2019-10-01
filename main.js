@@ -1190,7 +1190,7 @@ Game.tickerL.addEventListener('click', function(event) {
 
 	Game.WinBackup("Fortunate")
 	
-	if (Game.TickerEffect != 0 && Game.TickerEffect.type=='fortune') {
+	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
 		Game.FortuneClicks++;
 		Game.Win("Good news");
