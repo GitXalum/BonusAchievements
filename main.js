@@ -1193,6 +1193,7 @@ Game.tickerL.addEventListener('click', function(event) {
 	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
 		Game.FortuneClicks++;
+		XalumSave.FortuneClicks++;
 		Game.Win("Good news");
 		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
 		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
