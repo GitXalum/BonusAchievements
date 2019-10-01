@@ -194,7 +194,7 @@ Game.customChecks = [
 
 		Game.CustomAchievementsOwned = 0;
 		for (var i in Game.CustomAchievements) {
-			if (Game.Achievements[i].won != 0) Game.CustomAchievementsOwned ++;
+			if (Game.Achievements[Game.CustomAchievements[i].name].won != 0) Game.CustomAchievementsOwned ++;
 		}
 
 		XalumSave.experiencedSeasons = Game.experiencedSeasons;
