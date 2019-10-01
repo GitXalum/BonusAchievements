@@ -99,7 +99,8 @@ new Game.AddAchievement("Modded god complex", "Name yourself <b>Xalum</b>.<div c
 new Game.AddAchievement("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
-
+new Game.AddAchievement("Completionism", "Own <b>every base game achievement</b>.<q>You did it, there's nothing left to do. So what now?</q>", [10, 0, icons]); Game.last.pool = "shadow";
+new Game.AddAchievement("Modded completionism", "Own <b>every custom achievement</b>.<q>I have to say I'm impressed, good job, and thank you for playing.</q>", [11, 0, icons]); Game.last.pool = "shadow";
 
 
 
@@ -142,11 +143,27 @@ Game.Achievements["Modded god complex"].order = 30200.1592;
 Game.Achievements["Opti complex"].order = 30200.1591;
 Game.Achievements["Tragedy comes in trees"].order = 33000.105;
 Game.Achievements["Excellent bakery"].order = 36000.368;
+Game.Achievements["Completionism"].order = 37000.70;
+Game.Achievements["Modded completionism"].order = 37000.80;
+
 
 Game.XalAchievements = {};
+Game.CustomAchievements = {};
+Game.CustomShadowAchievements = {};
+Game.BaseAchievements = {};
 for (var i in Game.Achievements) {
 	if (Game.Achievements[i].xalum == 1) {
 		Game.XalAchievements[Object.size(Game.XalAchievements)] = Game.Achievements[i]
+		if (Game.Achievements[i].pool == "shadow") {
+			Game.CustomShadowAchievements[Object.size(Game.CustomShadowAchievements)] = Game.Achievements[i]
+		}
+	} else {
+		if (Game.Achievements[i].pool != "shadow") {
+			Game.BaseAchievements[Object.size(Game.BaseAchievements)] = Game.Achievements[i]
+		}
+	}
+	if (Game.Achievements[i].pool == "custom") {
+		Game.CustomAchievements[Object.size(Game.CustomAchievements)] = Game.Achievements[i]
 	}
 }
 
@@ -163,7 +180,7 @@ Game.customChecks = [
 		if (Game.experiencedSeasons) {
 			if (Game.season != "" && !Game.experiencedSeasons[Game.season]) Game.experiencedSeasons[Game.season] = true; 
 		} else {
-			Game.experiencedSeasons = XalumSave.experiencedSeasons
+			Game.experiencedSeasons = XalumSave.experiencedSeasons;
 		}
 
 		Game.experiencedAllSeasons = (Game.experiencedSeasons.christmas && Game.experiencedSeasons.halloween && Game.experiencedSeasons.valentines && Game.experiencedSeasons.easter && Game.experiencedSeasons.fools);
@@ -171,11 +188,16 @@ Game.customChecks = [
 
 		Game.feedingWrinklers = 0
 		for (var i in Game.wrinklers) {
-			var me = Game.wrinklers[i]
+			var me = Game.wrinklers[i];
 			if (me.sucked > 0) Game.feedingWrinklers++;
 		}
 
-		XalumSave.experiencedSeasons = Game.experiencedSeasons
+		Game.CustomAchievementsOwned = 0;
+		for (var i in Game.CustomAchievements) {
+			if (Game.Achievements[i].won != 0) Game.CustomAchievementsOwned ++;
+		}
+
+		XalumSave.experiencedSeasons = Game.experiencedSeasons;
 	},
 	function() { // Awarding Achievements
 		if (Game.prestige >= 1) Game.Win("Heavenly beginnings");
@@ -212,7 +234,9 @@ Game.customChecks = [
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
 		if (Game.Objects.Farm.minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
 		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
-		if (Game.minimumBuildingAmount >= 1000) Game.Win("Decacentennial")
+		if (Game.minimumBuildingAmount >= 1000) Game.Win("Decacentennial");
+		if (Game.AchievementsOwned >= Object.size(Game.BaseAchievements)) Game.Win("Completionism");
+		if (Game.CustomAchievementsOwned >= Object.size(Game.CustomAchievements)) Game.Win("Modded completionism");
 	},
 ]
 
