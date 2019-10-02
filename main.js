@@ -1182,7 +1182,7 @@ Game.crate=function(me,context,forceClickStr,id) {
 	'</div>';
 }
 
-Game.tickerL.removeEventListener("click", Game.tickerL.click)
+Game.tickerL.removeEventListener('click', Game.tickerL.click, false);
 Game.tickerL.addEventListener('click', function(event) {
 	Game.Ticker='';
 	Game.TickerClicks++;
