@@ -228,6 +228,10 @@ Game.customChecks = [
 
 		if (Game.AchievementsOwned >= 404) Game.Win("Achievement not found");
 
+		if (Game.FortuneClicks >= 1) Game.Win("Good news");
+		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
+		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
+
 
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
 		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
@@ -1182,46 +1186,13 @@ Game.crate=function(me,context,forceClickStr,id) {
 	'</div>';
 }
 
-Game.tickerL.click = function(event) {
-	Game.Ticker='';
-	Game.TickerClicks++;
-	if (Game.TickerClicks==50) Game.Win('Tabloid addiction');
-
-	Game.WinBackup("Fortunate")
-
-	console.log(Game.TickerEffect)
-	
-	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
-
-		Game.FortuneClicks++;
-		XalumSave.FortuneClicks++;
-		Game.Win("Good news");
-		if (Game.FortuneClicks >= 7) Game.Win("Lucky day");
-		if (Game.FortuneClicks >= 77) Game.Win("Fortunate");
-
-		PlaySound('snd/fortune.mp3',1);
-		Game.SparkleAt(Game.mouseX,Game.mouseY);
-		var effect=Game.TickerEffect.sub;
-		if (effect=='fortuneGC')
-		{
-			Game.Notify('Fortune!','A golden cookie has appeared.',[10,32]);
-			Game.fortuneGC=1;
-			var newShimmer=new Game.shimmer('golden',{noWrath:true});
-		}
-		else if (effect=='fortuneCPS')
-		{
-			Game.Notify('Fortune!','You gain <b>one hour</b> of your CpS (capped at double your bank).',[10,32]);
-			Game.fortuneCPS=1;
-			Game.Earn((Game.cookiesPs*60*60,Game.cookies));
-		}
-		else
-		{
-			Game.Notify(effect.name,'You\'ve unlocked a new upgrade.',effect.icon);
-			effect.unlock();
-		}
+Game.OldNotif = Game.Notify
+Game.Notify = function(title, desc, pic, quick, noLog) {
+	Game.OldNotif(title, desc, pic, quick, noLog);
+	if (title.substring(0, 7) == "Fortune") {
+		Game.FortuneClicks ++;
+		XalumSave.FortuneClicks ++;
 	}
-	
-	Game.TickerEffect=0;
 }
 
 
