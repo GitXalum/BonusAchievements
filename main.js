@@ -1190,7 +1190,7 @@ Game.tickerL.addEventListener('click', function(event) {
 
 	Game.WinBackup("Fortunate")
 
-	print(Game.TickerEffect)
+	console.log(Game.TickerEffect)
 	
 	if (Game.TickerEffect && Game.TickerEffect.type=='fortune') {
 
