@@ -77,7 +77,7 @@ new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000
 
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
-new Game.AddAchievement("Euclidean geometry", "Own <b>500</b> upgrades and <b>5000</b> buildings.<q>The giants look up to you, you have gone far beyond what they could ever have hoped to, the world is in your hands.</q>", [9, 0, icons]);
+new Game.AddAchievement("Euclidean geometry", "Own <b>500</b> upgrades and <b>5000</b> buildings.<q>The giants look up to you, for you have gone far beyond what they could ever have hoped to, the world is in your hands.</q>", [9, 0, icons]);
 
 new Game.AddAchievement("Heavenly beginnings", "Obtain a heavenly chip.<q>Impressive.</q>", [2, 0, icons]);
 new Game.AddAchievement("Heavenly bakery", "Obtain <b>1000000</b> total heavenly chips.<q>Amazing.</q>", [19, 7]);
