@@ -77,7 +77,6 @@ new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000
 
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
 
-new Game.AddAchievement("Earl of creation", "Own <b>1000</b> of any building.", [4, 0, icons]);
 new Game.AddAchievement("Euclidean geometry", "Own <b>500</b> upgrades and <b>5000</b> buildings.<q>The giants look up to you, you have gone far beyond what they could ever have hoped to, the world is in your hands.</q>", [9, 0, icons]);
 
 new Game.AddAchievement("Heavenly beginnings", "Obtain a heavenly chip.<q>Impressive.</q>", [2, 0, icons]);
@@ -94,7 +93,7 @@ new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log
 
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
-new Game.AddAchievement("Decacentennial", "Have at least <b>1000 of everything</b>.<q>You had to go and do it didn't you, people like you really have issues.</q>", [1, 1, icons]); Game.last.pool = "shadow";
+new Game.AddAchievement("Earl of creation", "Own <b>1000</b> of any building.", [4, 0, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Modded god complex", "Name yourself <b>Xalum</b>.<div class='warning'>Note : modded usurpers incur a -2% CpS penalty until they rename themselves something else.</div><q>Come on now that's still not you, is it?</q>", [2, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
@@ -121,7 +120,6 @@ Game.Achievements['Hemorrhage'].order = 21000.110;
 
 Game.Achievements["Master of the elements"].order = 22400.170;
 
-Game.Achievements["Earl of creation"].order = 5000.128;
 Game.Achievements["Euclidean geometry"].order = 6000.44;
 
 Game.Achievements["Heavenly beginnings"].order = 32000.80;
@@ -138,7 +136,7 @@ Game.Achievements["Finder's keepers"].order = 61515.380;
 
 
 Game.Achievements['Ironman mode'].order = 30200.08;
-Game.Achievements["Decacentennial"].order = 32207.1;
+Game.Achievements["Earl of creation"].order = 32207.1;
 Game.Achievements["Modded god complex"].order = 30200.1592;
 Game.Achievements["Opti complex"].order = 30200.1591;
 Game.Achievements["Tragedy comes in trees"].order = 33000.105;
@@ -220,7 +218,6 @@ Game.customChecks = [
 
 		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
 
-		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
 		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
@@ -236,9 +233,9 @@ Game.customChecks = [
 		if ((Game.ascensionMode==1 || Game.resets==0) && Game.cookiesEarned >= quad && Game.UpgradesOwned == 0) Game.Win("Ironman Mode");
 		if (Game.bakeryName.toLowerCase() == "xalum") Game.Win("Modded god complex");
 		if (Game.bakeryName.toLowerCase() == "opti") Game.Win("Opti complex");
+		if (Game.maximumBuildingAmount >= 1000) Game.Win("Earl of creation");
 		if (Game.Objects.Farm.minigame.convertTimes >= 3) Game.Win("Tragedy comes in trees");
 		if (Game.unbuffedCps >= tril && Game.cookiesEarned >= 60*60*24*30*Game.unbuffedCps) Game.Win("Excellent bakery");
-		if (Game.minimumBuildingAmount >= 1000) Game.Win("Decacentennial");
 		if (Game.AchievementsOwned >= Object.size(Game.BaseAchievements)) Game.Win("Completionism");
 		if (Game.CustomAchievementsOwned >= Object.size(Game.CustomAchievements)) Game.Win("Modded completionism");
 	},
