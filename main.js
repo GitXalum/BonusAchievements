@@ -1260,6 +1260,7 @@ XalumLoadConfig = function() {
         }
         if (!XalumSave.wrathClicks) XalumSave.wrathClicks = 0;
         if (!XalumSave.FortuneClicks) XalumSave.FortuneClicks = 0;
+        if (!XalumSave.MissedFortunes) XalumSave.MissedFortunes = 0;
 
         Game.experiencedSeasons = XalumSave.experiencedSeasons;
         Game.wrathClicks = XalumSave.wrathClicks;
