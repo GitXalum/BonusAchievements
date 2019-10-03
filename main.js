@@ -87,6 +87,7 @@ new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total he
 new Game.AddAchievement("Good news", "Click a <b>fortune</b>.", [29, 8]);
 new Game.AddAchievement("Lucky day", "Click <b>7 fortunes</b>.", [29, 8]);
 new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [29, 8]);
+new Game.AddAchievement("Unfortunate", "Miss a fortune.", [29, 8]);
 
 new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
 new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
@@ -127,9 +128,10 @@ Game.Achievements["Heavenly bakery"].order = 32000.81;
 Game.Achievements["Heavenly empire"].order = 32000.82;
 Game.Achievements["Heavenly legacy"].order = 32000.83;
 
-Game.Achievements["Good news"].order = 33000.450;
-Game.Achievements["Lucky day"].order = 33000.451;
-Game.Achievements["Fortunate"].order = 33000.452;
+Game.Achievements["Good news"].order = 33000.440;
+Game.Achievements["Lucky day"].order = 33000.441;
+Game.Achievements["Fortunate"].order = 33000.442;
+Game.Achievements["Fortunate"].order = 33000.443;
 
 Game.Achievements["Farming simulator"].order = 61515.379;
 Game.Achievements["Finder's keepers"].order = 61515.380;
@@ -1192,6 +1194,16 @@ Game.Notify = function(title, desc, pic, quick, noLog) {
 	}
 }
 
+Game.BackupNewTicker = Game.getNewTicker
+Game.getNewTicker = function(manual) {
+	if (!manual && Game.TickerEffect && Game.TickerEffect.type == "fortune") {
+		Game.MissedFortunes++; 
+		XalumSave.MissedFortunes++; 
+		Game.Win("Unfortunate");
+	}
+	Game.BackupNewTicker(manual)
+}
+
 
 var SavePrefix = "XalumPackage"
 var XalumPermaSave = {}
@@ -1217,6 +1229,7 @@ XalumSaveDefault = function() {
     }
     if (!Game.wrathClicks) Game.wrathClicks = 0;
     if (!Game.FortuneClicks) Game.FortuneClicks = 0;
+    if (!Game.MissedFortunes) Game.MissedFortunes = 0;
 
     XalumSaveConfig();
 }
@@ -1251,6 +1264,7 @@ XalumLoadConfig = function() {
         Game.experiencedSeasons = XalumSave.experiencedSeasons;
         Game.wrathClicks = XalumSave.wrathClicks;
         Game.FortuneClicks = XalumSave.FortuneClicks;
+        Game.MissedFortunes = XalumSave.MissedFortunes;
     }
     else {
         XalumSaveDefault();
