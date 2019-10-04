@@ -86,7 +86,7 @@ new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total he
 
 new Game.AddAchievement("Good news", "Click a <b>fortune</b>.", [29, 8]);
 new Game.AddAchievement("Lucky day", "Click <b>7 fortunes</b>.", [29, 8]);
-new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [29, 8]);
+new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [10, 0, icons]);
 new Game.AddAchievement("Unfortunate", "Miss a fortune.", [29, 8]);
 
 new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
@@ -99,8 +99,8 @@ new Game.AddAchievement("Modded god complex", "Name yourself <b>Xalum</b>.<div c
 new Game.AddAchievement("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
-new Game.AddAchievement("Completionism", "Own <b>every base game achievement</b>.<q>You did it, there's nothing left to do. So what now?</q>", [10, 0, icons]); Game.last.pool = "shadow";
-new Game.AddAchievement("Modded completionism", "Own <b>every custom achievement</b>.<q>I have to say I'm impressed, good job, and thank you for playing.</q>", [11, 0, icons]); Game.last.pool = "shadow";
+new Game.AddAchievement("Completionism", "Own <b>every base game achievement</b>.<q>You did it, there's nothing left to do. So what now?</q>", [6, 1, icons]); Game.last.pool = "shadow";
+new Game.AddAchievement("Modded completionism", "Own <b>every custom achievement</b>.<q>I have to say I'm impressed, good job, and thank you for playing.</q>", [7, 1, icons]); Game.last.pool = "shadow";
 
 
 
