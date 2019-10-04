@@ -86,8 +86,8 @@ new Game.AddAchievement("Heavenly legacy", "Obtain <b>1000000000000</b> total he
 
 new Game.AddAchievement("Good news", "Click a <b>fortune</b>.", [29, 8]);
 new Game.AddAchievement("Lucky day", "Click <b>7 fortunes</b>.", [29, 8]);
-new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [10, 0, icons]);
-new Game.AddAchievement("Unfortunate", "Miss a fortune.", [29, 8]);
+new Game.AddAchievement("Fortunate", "Click <b>77 fortunes</b>.", [29, 8]);
+new Game.AddAchievement("Unfortunate", "Miss a fortune.", [10, 0, icons]);
 
 new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
 new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
