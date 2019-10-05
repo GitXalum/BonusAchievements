@@ -69,6 +69,8 @@ new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [
 
 new Game.AddAchievement("Achievement not found", "Obtain <b>404 base game achievements</b>.<q>Refer to the manual to determine the exact cause of this error</q>", [0, 7]);
 
+new Game.AddAchievement("Elder worship", "Purchase <b>every Grandmapocalypse related upgrade</b>.<q>We<br>become<br>strong</q>", [4, 9]);
+
 new Game.AddAchievement("Circle of life", "Have 12 wrinklers feeding on your big cookie <b>simultaneously</b>.", [19, 8]);
 new Game.AddAchievement("Itchy trigger finger", "Burst a wrinkler <b>before</b> it consumes any cookies.", [19, 8]);
 new Game.AddAchievement('Stomachache', 'Burst a wrinkler containing <b>1000000000000</b> cookies.', [0, 0, icons]);
@@ -112,6 +114,8 @@ Game.Achievements["Dichotomy"].order = 10000.271;
 Game.Achievements["Crumbling fortune"].order = 10000.271;
 
 Game.Achievements["Achievement not found"].order = 11000.244;
+
+Game.Achievements["Elder worship"].order = 20000.083;
 
 Game.Achievements['Circle of life'].order = 21000.107;
 Game.Achievements['Itchy trigger finger'].order = 21000.107;
@@ -216,7 +220,13 @@ Game.customChecks = [
 
 		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune")
 
-		if (Game.feedingWrinklers >= 12) Game.Win("Circle of life")
+		if (Game.Upgrades["Specialized chocolate chips"].bought == 1 && Game.Upgrades["Designer cocoa beans"].bought == 1 && Game.Upgrades["Ritual rolling pins"].bought == 1 && Game.Upgrades["Underworld ovens"].bought == 1 &&
+			Game.Upgrades["One mind"].bought == 1 && Game.Upgrades["Exotic nuts"].bought == 1 && Game.Upgrades["Communal brainsweep"].bought == 1 && Game.Upgrades["Arcane sugar"].bought == 1 &&
+			Game.Upgrades["Elder Pact"].bought == 1 && Game.Upgrades["Sacrificial rolling pins"].bought == 1) {
+			Game.Win("Elder worship");
+		}
+
+		if (Game.feedingWrinklers >= 12) Game.Win("Circle of life");
 
 		if (Game.experiencedAllSeasons) Game.Win("Master of the elements");
 
