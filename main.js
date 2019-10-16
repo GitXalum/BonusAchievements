@@ -65,6 +65,7 @@ new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [5, 0, 
 new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [6, 0, icons]);
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
 new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
+new Game.AddAchievement("Unlucky", "Miss a golden cookie.", [3, 0, icons]);
 new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [3, 0, icons]);
 
 new Game.AddAchievement("Achievement not found", "Obtain <b>404 base game achievements</b>.<q>Refer to the manual to determine the exact cause of this error</q>", [0, 7]);
@@ -111,7 +112,8 @@ Game.Achievements["Dodgy cookie"].order = 10000.091;
 Game.Achievements["Withering heights"].order = 10000.092;
 Game.Achievements["Hattrick"].order = 10000.270;
 Game.Achievements["Dichotomy"].order = 10000.271;
-Game.Achievements["Crumbling fortune"].order = 10000.271;
+Game.Achievements["Unlucky"].order = 10000.272;
+Game.Achievements["Crumbling fortune"].order = 10000.273;
 
 Game.Achievements["Achievement not found"].order = 11000.244;
 
@@ -218,7 +220,8 @@ Game.customChecks = [
 		var n = Object.size(Game.shimmers);
 		if (n >= 2 && n > w && w > 0) Game.Win("Dichotomy");
 
-		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune")
+		if (Game.missedGoldenClicks >= 1) Game.Win("Unlucky");
+		if (Game.missedGoldenClicks >= 77) Game.Win("Crumbling fortune");
 
 		if (Game.Upgrades["Specialized chocolate chips"].bought == 1 && Game.Upgrades["Designer cocoa beans"].bought == 1 && Game.Upgrades["Ritual rolling pins"].bought == 1 && Game.Upgrades["Underworld ovens"].bought == 1 &&
 			Game.Upgrades["One mind"].bought == 1 && Game.Upgrades["Exotic nuts"].bought == 1 && Game.Upgrades["Communal brainsweep"].bought == 1 && Game.Upgrades["Arcane sugar"].bought == 1 &&
