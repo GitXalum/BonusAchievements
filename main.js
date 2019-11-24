@@ -260,7 +260,7 @@ Game.BackupUpdateWrinklers = Game.UpdateWrinklers;
 Game.UpdateWrinklers = function() {
 	var popped = Game.wrinklersPopped;
 	var bank = Game.cookies;
-	Game.BackupUpdateWrinklers();
+	var val = Game.BackupUpdateWrinklers();
 	if (popped < Game.wrinklersPopped) {
 		if (Game.cookies - bank >= tril) {
 			Game.Win('Stomachache');
@@ -275,6 +275,7 @@ Game.UpdateWrinklers = function() {
 			Game.Win("Itchy trigger finger");
 		}
 	}
+	return val;
 }
 
 Game.BackupReset = Game.Reset;
@@ -1200,11 +1201,12 @@ Game.crate=function(me,context,forceClickStr,id) {
 
 Game.OldNotif = Game.Notify
 Game.Notify = function(title, desc, pic, quick, noLog) {
-	Game.OldNotif(title, desc, pic, quick, noLog);
+	var val = Game.OldNotif(title, desc, pic, quick, noLog);
 	if (title.substring(0, 7) == "Fortune") {
 		Game.FortuneClicks ++;
 		XalumSave.FortuneClicks ++;
 	}
+	return val;
 }
 
 Game.BackupNewTicker = Game.getNewTicker
@@ -1214,7 +1216,7 @@ Game.getNewTicker = function(manual) {
 		XalumSave.MissedFortunes++; 
 		Game.Win("Unfortunate");
 	}
-	Game.BackupNewTicker(manual)
+	return Game.BackupNewTicker(manual)
 }
 
 
