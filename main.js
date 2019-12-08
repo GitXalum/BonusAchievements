@@ -298,6 +298,16 @@ Game.customChecks = [
 			Game.Upgrades["Mole people"].bought == 1 && Game.Upgrades["Mine canaries"].bought == 1 && Game.Upgrades["Bore again"].bought == 1) {
 			Game.Win("Holes through the bottom of the world");
 		}
+		if (Game.Upgrades["Sturdier converyor belts"].bought == 1 && Game.Upgrades["Child labor"].bought == 1 && Game.Upgrades["Sweatshop"].bought == 1 && Game.Upgrades["Radium reactors"].bought == 1 &&
+			Game.Upgrades["Recombobulators"].bought == 1 && Game.Upgrades["Deep-bake process"].bought == 1 && Game.Upgrades["Cyborg workforce"].bought == 1 && Game.Upgrades["78-hour days"].bought == 1 &&
+			Game.Upgrades["Machine learning"].bought == 1 && Game.Upgrades["Brownie point system"].bought == 1 && Game.Upgrades['"Volunteer" interns'].bought == 1) {
+			Game.Win("Zero friction lubricant");
+		}
+		if (Game.Upgrades["Taller tellers"].bought == 1 && Game.Upgrades["Scissor-resistant credit cards"].bought == 1 && Game.Upgrades["Acid-proof vaults"].bought == 1 && Game.Upgrades["Chocolate coins"].bought == 1 &&
+			Game.Upgrades["Exponential interest rates"].bought == 1 && Game.Upgrades["Financial zen"].bought == 1 && Game.Upgrades["Way of the wallet"].bought == 1 && Game.Upgrades["The stuff rationale"].bought == 1 &&
+			Game.Upgrades["Edible money"].bought == 1 && Game.Upgrades["Grand supercycles"].bought == 1 && Game.Upgrades["Rules of acquisition"].bought == 1) {
+			Game.Win("No win no fee guarentee");
+		}
 
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
