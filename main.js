@@ -298,7 +298,7 @@ Game.customChecks = [
 			Game.Upgrades["Mole people"].bought == 1 && Game.Upgrades["Mine canaries"].bought == 1 && Game.Upgrades["Bore again"].bought == 1) {
 			Game.Win("Holes through the bottom of the world");
 		}
-		if (Game.Upgrades["Sturdier converyor belts"].bought == 1 && Game.Upgrades["Child labor"].bought == 1 && Game.Upgrades["Sweatshop"].bought == 1 && Game.Upgrades["Radium reactors"].bought == 1 &&
+		if (Game.Upgrades["Sturdier conveyor belts"].bought == 1 && Game.Upgrades["Child labor"].bought == 1 && Game.Upgrades["Sweatshop"].bought == 1 && Game.Upgrades["Radium reactors"].bought == 1 &&
 			Game.Upgrades["Recombobulators"].bought == 1 && Game.Upgrades["Deep-bake process"].bought == 1 && Game.Upgrades["Cyborg workforce"].bought == 1 && Game.Upgrades["78-hour days"].bought == 1 &&
 			Game.Upgrades["Machine learning"].bought == 1 && Game.Upgrades["Brownie point system"].bought == 1 && Game.Upgrades['"Volunteer" interns'].bought == 1) {
 			Game.Win("Zero friction lubricant");
