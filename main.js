@@ -273,6 +273,12 @@ Game.customChecks = [
 
 		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
+		if (Game.Upgrades["Reinforced index finger"].bought == 1 && Game.Upgrades["Carpal tunnel prevention cream"].bought == 1 && Game.Upgrades["Ambidextrous"].bought == 1 && Game.Upgrades["Thousand fingers"].bought == 1 &&
+			Game.Upgrades["Million fingers"].bought == 1 && Game.Upgrades["Billion fingers"].bought == 1 && Game.Upgrades["Trillion fingers"].bought == 1 && Game.Upgrades["Quadrillion fingers"].bought == 1 &&
+			Game.Upgrades["Quintillion fingers"].bought == 1 && Game.Upgrades["Sextillion fingers"].bought == 1 && Game.Upgrades["Septillion fingers"].bought == 1 && Game.Upgrades["Octillion fingers"].bought == 1) {
+			Game.Win("A mouse made of a currently undisclosed metal");
+		}
+
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
 		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
 
