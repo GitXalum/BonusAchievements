@@ -288,6 +288,16 @@ Game.customChecks = [
 			Game.Upgrades["Reverse dementia"].bought == 1 && Game.Upgrades["Timeproof hair dyes"].bought == 1 && Game.Upgrades["Good manners"].bought == 1) {
 			Game.Win("All-in-one power baking tools");
 		}
+		if (Game.Upgrades["Cheap hoes"].bought == 1 && Game.Upgrades["Fertilizer"].bought == 1 && Game.Upgrades["Cookie trees"].bought == 1 && Game.Upgrades["Genetically-modified cookies"].bought == 1 &&
+			Game.Upgrades["Gingerbread scarecrows"].bought == 1 && Game.Upgrades["Pulsar sprinklers"].bought == 1 && Game.Upgrades["Fudge fungus"].bought == 1 && Game.Upgrades["Wheat triffids"].bought == 1 &&
+			Game.Upgrades["Humane pesticides"].bought == 1 && Game.Upgrades["Barnstars"].bought == 1 && Game.Upgrades["Lindworms"].bought == 1) {
+			Game.Win("Universe-wide crop rotation");
+		}
+		if (Game.Upgrades["Sugar gas"].bought == 1 && Game.Upgrades["Megadrill"].bought == 1 && Game.Upgrades["Ultradrill"].bought == 1 && Game.Upgrades["Ultimadrill"].bought == 1 &&
+			Game.Upgrades["H-bomb mining"].bought == 1 && Game.Upgrades["Coreforge"].bought == 1 && Game.Upgrades["Planetsplitters"].bought == 1 && Game.Upgrades["Canola oil wells"].bought == 1 &&
+			Game.Upgrades["Mole people"].bought == 1 && Game.Upgrades["Mine canaries"].bought == 1 && Game.Upgrades["Bore again"].bought == 1) {
+			Game.Win("Holes through the bottom of the world");
+		}
 
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
