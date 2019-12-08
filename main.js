@@ -273,11 +273,22 @@ Game.customChecks = [
 
 		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
+		if (Game.Upgrades["Plastic mouse"].bought == 1 && Game.Upgrades["Iron mouse"].bought == 1 && Game.Upgrades["Titanium mouse"].bought == 1 && Game.Upgrades["Adamantium mouse"].bought == 1 &&
+			Game.Upgrades["Unobtainium mouse"].bought == 1 && Game.Upgrades["Eldium mouse"].bought == 1 && Game.Upgrades["Wishalloy mouse"].bought == 1 && Game.Upgrades["Fantasteel mouse"].bought == 1 &&
+			Game.Upgrades["Nevercrack mouse"].bought == 1 && Game.Upgrades["Armythril mouse"].bought == 1 && Game.Upgrades["Technobsidian mouse"].bought == 1 && Game.Upgrades["Plasmarble mouse"].bought == 1) {
+			Game.Win("A mouse made of a currently undisclosed metal");
+		}
 		if (Game.Upgrades["Reinforced index finger"].bought == 1 && Game.Upgrades["Carpal tunnel prevention cream"].bought == 1 && Game.Upgrades["Ambidextrous"].bought == 1 && Game.Upgrades["Thousand fingers"].bought == 1 &&
 			Game.Upgrades["Million fingers"].bought == 1 && Game.Upgrades["Billion fingers"].bought == 1 && Game.Upgrades["Trillion fingers"].bought == 1 && Game.Upgrades["Quadrillion fingers"].bought == 1 &&
 			Game.Upgrades["Quintillion fingers"].bought == 1 && Game.Upgrades["Sextillion fingers"].bought == 1 && Game.Upgrades["Septillion fingers"].bought == 1 && Game.Upgrades["Octillion fingers"].bought == 1) {
-			Game.Win("A mouse made of a currently undisclosed metal");
+			Game.Win("Artificial accretion disk");
 		}
+		if (Game.Upgrades["Fowards from grandma"].bought == 1 && Game.Upgrades["Steel-plated rolling pins"].bought == 1 && Game.Upgrades["Lubricated dentures"].bought == 1 && Game.Upgrades["Prune juice"].bought == 1 &&
+			Game.Upgrades["Double-thick glasses"].bought == 1 && Game.Upgrades["Aging agents"].bought == 1 && Game.Upgrades["Xtreme walkers"].bought == 1 && Game.Upgrades["The Unbridling"].bought == 1 &&
+			Game.Upgrades["Reverse dementia"].bought == 1 && Game.Upgrades["Timeproof hair dyes"].bought == 1 && Game.Upgrades["Good manners"].bought == 1) {
+			Game.Win("All-in-one power baking tools");
+		}
+
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
 		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
