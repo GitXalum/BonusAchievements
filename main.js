@@ -95,6 +95,25 @@ new Game.AddAchievement("Unfortunate", "Miss a fortune.", [10, 0, icons]);
 new Game.AddAchievement("Farming simulator", "Unlock <b>every upgrade and cookie from the garden</b>.", [8, 0, icons]);
 new Game.AddAchievement("Finder's keepers", "Fill in <b>half</b> of the seed log.<q>You snooze, you lose.</q>", [7, 0, icons]);
 
+new Game.AddAchievement("A mouse made of a currently undisclosed metal", "Purchase <b>every cursor upgrade</b>.", [11, 27])
+new Game.AddAchievement("Artificial accretion disk", "Purchase <b>every clicker upgrade</b>.", [0, 27])
+new Game.AddAchievement("All-in-one power baking tools", "Purchase <b>every grandma upgrade</b>.", [1, 27])
+new Game.AddAchievement("Universe-wide crop rotation", "Purchase <b>every farm upgrade</b>.", [2, 27])
+new Game.AddAchievement("Holes through the bottom of the world", "Purchase <b>every mine upgrade</b>.", [3, 27])
+new Game.AddAchievement("Zero friction lubricant", "Purchase <b>every factory upgrade</b>.", [4, 27])
+new Game.AddAchievement("No win no fee guarentee", "Purchase <b>every bank upgrade</b>.", [15, 27])
+new Game.AddAchievement("A series of strongly held beliefs", "Purchase <b>every temple upgrade</b>.", [16, 27])
+new Game.AddAchievement("Klein mana bottles", "Purchase <b>every wizard tower upgrade</b>.", [17, 27])
+new Game.AddAchievement("Bottomless fuel tanks", "Purchase <b>every shipment upgrade</b>.", [5, 27])
+new Game.AddAchievement("Boltzmann distribution tactics", "Purchase <b>every alchemy lab upgrade</b>.", [6, 27])
+new Game.AddAchievement("Fractures in space, shattering reality", "Purchase <b>every portal upgrade</b>.", [7, 27])
+new Game.AddAchievement("Thyme", "Purchase <b>every time machine upgrade</b>.", [8, 27])
+new Game.AddAchievement("Condensing into a third dimension", "Purchase <b>every antimatter condenser upgrade</b>.<q>NB. The third dimension is made of cookies.</q>", [13, 27])
+new Game.AddAchievement("An unnecessary quantity of crystal polish", "Purchase <b>every prism upgrade</b>.", [14, 27])
+new Game.AddAchievement("Influence over cause and effect", "Purchase <b>every chancemaker upgrade</b>.", [19, 27])
+new Game.AddAchievement("An achievement celebrating the ownership of every fractal engine upgrade", "Purchase <b>every fractal engine upgrade</b>.", [20, 27])
+new Game.AddAchievement('Game.Win("Game.Win("Game.Win("Game.Win("Game.Win(...)")")")")', "Purchase <b>every javascript console upgrade</b>.", [32, 27])
+
 
 new Game.AddAchievement('Ironman mode', 'Get to <b>1000000000000000</b> cookies baked with <b>no upgrades purchased</b>.<q>Was it worth it?</q>', [0, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Earl of creation", "Own <b>1000</b> of any building.", [4, 0, icons]); Game.last.pool = "shadow";
@@ -141,6 +160,25 @@ Game.Achievements["Fortunate"].order = 33000.443;
 
 Game.Achievements["Farming simulator"].order = 61515.379;
 Game.Achievements["Finder's keepers"].order = 61515.380;
+
+Game.Achievements["A mouse made of a currently undisclosed metal"].order = 6000.50;
+Game.Achievements["Artificial accretion disk"].order = 6000.51;
+Game.Achievements["All-in-one power baking tools"].order = 6000.52;
+Game.Achievements["Universe-wide crop rotation"].order = 6000.53;
+Game.Achievements["Holes through the bottom of the world"].order = 6000.54;
+Game.Achievements["Zero friction lubricant"].order = 6000.55;
+Game.Achievements["No win no fee guarentee"].order = 6000.56;
+Game.Achievements["A series of strongly held beliefs"].order = 6000.57;
+Game.Achievements["Klein mana bottles"].order = 6000.58;
+Game.Achievements["Bottomless fuel tanks"].order = 6000.59;
+Game.Achievements["Boltzmann distribution tactics"].order = 6000.60;
+Game.Achievements["Fractures in space, shattering reality"].order = 6000.61;
+Game.Achievements["Thyme"].order = 6000.62;
+Game.Achievements["Condensing into a third dimension"].order = 6000.63;
+Game.Achievements["An unnecessary quantity of crystal polish"].order = 6000.64;
+Game.Achievements["Influence over cause and effect"].order = 6000.65;
+Game.Achievements["An achievement celebrating the ownership of every fractal engine upgrade"].order = 6000.66;
+Game.Achievements['Game.Win("Game.Win("Game.Win("Game.Win("Game.Win(...)")")")")'].order = 6000.67;
 
 
 Game.Achievements['Ironman mode'].order = 30200.08;
