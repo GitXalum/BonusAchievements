@@ -274,7 +274,7 @@ Game.customChecks = [
 		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
 		if (Game.Upgrades["Plastic mouse"].bought == 1 && Game.Upgrades["Iron mouse"].bought == 1 && Game.Upgrades["Titanium mouse"].bought == 1 && Game.Upgrades["Adamantium mouse"].bought == 1 &&
-			Game.Upgrades["Unobtainium mouse"].bought == 1 && Game.Upgrades["Eldium mouse"].bought == 1 && Game.Upgrades["Wishalloy mouse"].bought == 1 && Game.Upgrades["Fantasteel mouse"].bought == 1 &&
+			Game.Upgrades["Unobtainium mouse"].bought == 1 && Game.Upgrades["Eludium mouse"].bought == 1 && Game.Upgrades["Wishalloy mouse"].bought == 1 && Game.Upgrades["Fantasteel mouse"].bought == 1 &&
 			Game.Upgrades["Nevercrack mouse"].bought == 1 && Game.Upgrades["Armythril mouse"].bought == 1 && Game.Upgrades["Technobsidian mouse"].bought == 1 && Game.Upgrades["Plasmarble mouse"].bought == 1) {
 			Game.Win("A mouse made of a currently undisclosed metal");
 		}
