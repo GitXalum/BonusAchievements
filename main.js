@@ -327,6 +327,12 @@ Game.customChecks = [
 			Game.Upgrades["Deluxe tailored wands"].bought == 1 && Game.Upgrades["Immobile spellcasting"].bought == 1 && Game.Upgrades["Electricity"].bought == 1) {
 			Game.Win("Klein mana bottles");
 		}
+		if (Game.Achievements["Bottomless fuel tanks"].won == 0 &&
+			Game.Upgrades["Vanilla nebulae"].bought == 1 && Game.Upgrades["Wormholes"].bought == 1 && Game.Upgrades["Frequent flyer"].bought == 1 && Game.Upgrades["Warp drive"].bought == 1 &&
+			Game.Upgrades["Chocolate monoliths"].bought == 1 && Game.Upgrades["Generation ship"].bought == 1 && Game.Upgrades["Dyson sphere"].bought == 1 && Game.Upgrades["The final frontier"].bought == 1 &&
+			Game.Upgrades["Autopilot"].bought == 1 && Game.Upgrades["Restaurants at the end of the universe"].bought == 1 && Game.Upgrades["Universal alphabet"].bought == 1) {
+			Game.Win("Bottomless fuel tanks");
+		}
 
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
