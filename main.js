@@ -321,6 +321,12 @@ Game.customChecks = [
 			Game.Upgrades["Sick rap prayers"].bought == 1 && Game.Upgrades["Psalm-reading"].bought == 1 && Game.Upgrades["War of the gods"].bought == 1) {
 			Game.Win("A series of strongly held beliefs");
 		}
+		if (Game.Achievements["Klein mana bottles"].won == 0 &&
+			Game.Upgrades["Pointier hats"].bought == 1 && Game.Upgrades["Beardlier beards"].bought == 1 && Game.Upgrades["Ancient grimoires"].bought == 1 && Game.Upgrades["Kitchen curses"].bought == 1 &&
+			Game.Upgrades["School of sorcery"].bought == 1 && Game.Upgrades["Dark formulas"].bought == 1 && Game.Upgrades["Cookiemancy"].bought == 1 && Game.Upgrades["Rabbit trick"].bought == 1 &&
+			Game.Upgrades["Deluxe tailored wands"].bought == 1 && Game.Upgrades["Immobile spellcasting"].bought == 1 && Game.Upgrades["Electricity"].bought == 1) {
+			Game.Win("Klein mana bottles");
+		}
 
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
