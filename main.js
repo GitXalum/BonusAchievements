@@ -273,40 +273,53 @@ Game.customChecks = [
 
 		if (Game.BuildingsOwned >= 5000 && Game.UpgradesOwned >= 500) Game.Win("Euclidean geometry");
 
-		if (Game.Upgrades["Plastic mouse"].bought == 1 && Game.Upgrades["Iron mouse"].bought == 1 && Game.Upgrades["Titanium mouse"].bought == 1 && Game.Upgrades["Adamantium mouse"].bought == 1 &&
+		if (Game.Achievements["A mouse made of a currently undisclosed metal"].won == 0 && 
+			Game.Upgrades["Plastic mouse"].bought == 1 && Game.Upgrades["Iron mouse"].bought == 1 && Game.Upgrades["Titanium mouse"].bought == 1 && Game.Upgrades["Adamantium mouse"].bought == 1 &&
 			Game.Upgrades["Unobtainium mouse"].bought == 1 && Game.Upgrades["Eludium mouse"].bought == 1 && Game.Upgrades["Wishalloy mouse"].bought == 1 && Game.Upgrades["Fantasteel mouse"].bought == 1 &&
 			Game.Upgrades["Nevercrack mouse"].bought == 1 && Game.Upgrades["Armythril mouse"].bought == 1 && Game.Upgrades["Technobsidian mouse"].bought == 1 && Game.Upgrades["Plasmarble mouse"].bought == 1) {
 			Game.Win("A mouse made of a currently undisclosed metal");
 		}
-		if (Game.Upgrades["Reinforced index finger"].bought == 1 && Game.Upgrades["Carpal tunnel prevention cream"].bought == 1 && Game.Upgrades["Ambidextrous"].bought == 1 && Game.Upgrades["Thousand fingers"].bought == 1 &&
+		if (Game.Achievements["Artificial accretion disk"].won == 0 &&
+			Game.Upgrades["Reinforced index finger"].bought == 1 && Game.Upgrades["Carpal tunnel prevention cream"].bought == 1 && Game.Upgrades["Ambidextrous"].bought == 1 && Game.Upgrades["Thousand fingers"].bought == 1 &&
 			Game.Upgrades["Million fingers"].bought == 1 && Game.Upgrades["Billion fingers"].bought == 1 && Game.Upgrades["Trillion fingers"].bought == 1 && Game.Upgrades["Quadrillion fingers"].bought == 1 &&
 			Game.Upgrades["Quintillion fingers"].bought == 1 && Game.Upgrades["Sextillion fingers"].bought == 1 && Game.Upgrades["Septillion fingers"].bought == 1 && Game.Upgrades["Octillion fingers"].bought == 1) {
 			Game.Win("Artificial accretion disk");
 		}
-		if (Game.Upgrades["Forwards from grandma"].bought == 1 && Game.Upgrades["Steel-plated rolling pins"].bought == 1 && Game.Upgrades["Lubricated dentures"].bought == 1 && Game.Upgrades["Prune juice"].bought == 1 &&
+		if (Game.Achievements["All-in-one power baking tools"].won == 0 &&
+			Game.Upgrades["Forwards from grandma"].bought == 1 && Game.Upgrades["Steel-plated rolling pins"].bought == 1 && Game.Upgrades["Lubricated dentures"].bought == 1 && Game.Upgrades["Prune juice"].bought == 1 &&
 			Game.Upgrades["Double-thick glasses"].bought == 1 && Game.Upgrades["Aging agents"].bought == 1 && Game.Upgrades["Xtreme walkers"].bought == 1 && Game.Upgrades["The Unbridling"].bought == 1 &&
 			Game.Upgrades["Reverse dementia"].bought == 1 && Game.Upgrades["Timeproof hair dyes"].bought == 1 && Game.Upgrades["Good manners"].bought == 1) {
 			Game.Win("All-in-one power baking tools");
 		}
-		if (Game.Upgrades["Cheap hoes"].bought == 1 && Game.Upgrades["Fertilizer"].bought == 1 && Game.Upgrades["Cookie trees"].bought == 1 && Game.Upgrades["Genetically-modified cookies"].bought == 1 &&
+		if (Game.Achievements["Universe-wide crop rotation"].won == 0 &&
+			Game.Upgrades["Cheap hoes"].bought == 1 && Game.Upgrades["Fertilizer"].bought == 1 && Game.Upgrades["Cookie trees"].bought == 1 && Game.Upgrades["Genetically-modified cookies"].bought == 1 &&
 			Game.Upgrades["Gingerbread scarecrows"].bought == 1 && Game.Upgrades["Pulsar sprinklers"].bought == 1 && Game.Upgrades["Fudge fungus"].bought == 1 && Game.Upgrades["Wheat triffids"].bought == 1 &&
 			Game.Upgrades["Humane pesticides"].bought == 1 && Game.Upgrades["Barnstars"].bought == 1 && Game.Upgrades["Lindworms"].bought == 1) {
 			Game.Win("Universe-wide crop rotation");
 		}
-		if (Game.Upgrades["Sugar gas"].bought == 1 && Game.Upgrades["Megadrill"].bought == 1 && Game.Upgrades["Ultradrill"].bought == 1 && Game.Upgrades["Ultimadrill"].bought == 1 &&
+		if (Game.Achievements["Holes through the bottom of the world"].won == 0 &&
+			Game.Upgrades["Sugar gas"].bought == 1 && Game.Upgrades["Megadrill"].bought == 1 && Game.Upgrades["Ultradrill"].bought == 1 && Game.Upgrades["Ultimadrill"].bought == 1 &&
 			Game.Upgrades["H-bomb mining"].bought == 1 && Game.Upgrades["Coreforge"].bought == 1 && Game.Upgrades["Planetsplitters"].bought == 1 && Game.Upgrades["Canola oil wells"].bought == 1 &&
 			Game.Upgrades["Mole people"].bought == 1 && Game.Upgrades["Mine canaries"].bought == 1 && Game.Upgrades["Bore again"].bought == 1) {
 			Game.Win("Holes through the bottom of the world");
 		}
-		if (Game.Upgrades["Sturdier conveyor belts"].bought == 1 && Game.Upgrades["Child labor"].bought == 1 && Game.Upgrades["Sweatshop"].bought == 1 && Game.Upgrades["Radium reactors"].bought == 1 &&
+		if (Game.Achievements["Zero friction lubricant"].won == 0 &&
+			Game.Upgrades["Sturdier conveyor belts"].bought == 1 && Game.Upgrades["Child labor"].bought == 1 && Game.Upgrades["Sweatshop"].bought == 1 && Game.Upgrades["Radium reactors"].bought == 1 &&
 			Game.Upgrades["Recombobulators"].bought == 1 && Game.Upgrades["Deep-bake process"].bought == 1 && Game.Upgrades["Cyborg workforce"].bought == 1 && Game.Upgrades["78-hour days"].bought == 1 &&
 			Game.Upgrades["Machine learning"].bought == 1 && Game.Upgrades["Brownie point system"].bought == 1 && Game.Upgrades['"Volunteer" interns'].bought == 1) {
 			Game.Win("Zero friction lubricant");
 		}
-		if (Game.Upgrades["Taller tellers"].bought == 1 && Game.Upgrades["Scissor-resistant credit cards"].bought == 1 && Game.Upgrades["Acid-proof vaults"].bought == 1 && Game.Upgrades["Chocolate coins"].bought == 1 &&
+		if (Game.Achievements["No win no fee guarentee"].won == 0 &&
+			Game.Upgrades["Taller tellers"].bought == 1 && Game.Upgrades["Scissor-resistant credit cards"].bought == 1 && Game.Upgrades["Acid-proof vaults"].bought == 1 && Game.Upgrades["Chocolate coins"].bought == 1 &&
 			Game.Upgrades["Exponential interest rates"].bought == 1 && Game.Upgrades["Financial zen"].bought == 1 && Game.Upgrades["Way of the wallet"].bought == 1 && Game.Upgrades["The stuff rationale"].bought == 1 &&
 			Game.Upgrades["Edible money"].bought == 1 && Game.Upgrades["Grand supercycles"].bought == 1 && Game.Upgrades["Rules of acquisition"].bought == 1) {
 			Game.Win("No win no fee guarentee");
+		}
+		if (Game.Achievements["A series of strongly held beliefs"].won == 0 &&
+			Game.Upgrades["Golden idols"].bought == 1 && Game.Upgrades["Sacrifices"].bought == 1 && Game.Upgrades["Delicious blessings"].bought == 1 && Game.Upgrades["Sun festival"].bought == 1 &&
+			Game.Upgrades["Enlarged pantheon"].bought == 1 && Game.Upgrades["Great baker in the sky"].bought == 1 && Game.Upgrades["Creation myth"].bought == 1 && Game.Upgrades["Theocracy"].bought == 1 &&
+			Game.Upgrades["Sick rap prayers"].bought == 1 && Game.Upgrades["Psalm-reading"].bought == 1 && Game.Upgrades["War of the gods"].bought == 1) {
+			Game.Win("A series of strongly help beliefs");
 		}
 
 
