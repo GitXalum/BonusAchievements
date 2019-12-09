@@ -104,7 +104,7 @@ new Game.AddAchievement("Zero friction lubricant", "Purchase <b>every factory up
 new Game.AddAchievement("No win no fee guarentee", "Purchase <b>every bank upgrade</b>.", [15, 27])
 new Game.AddAchievement("A series of strongly held beliefs", "Purchase <b>every temple upgrade</b>.", [16, 27])
 new Game.AddAchievement("Klein mana bottles", "Purchase <b>every wizard tower upgrade</b>.", [17, 27])
-new Game.AddAchievement("Bottomless fuel tanks", "Purchase <b>every shipment upgrade</b>.", [5, 27])
+new Game.AddAchievement("Bottomless fuel cells", "Purchase <b>every shipment upgrade</b>.", [5, 27])
 new Game.AddAchievement("Boltzmann distribution tactics", "Purchase <b>every alchemy lab upgrade</b>.", [6, 27])
 new Game.AddAchievement("Fractures in space, shattering reality", "Purchase <b>every portal upgrade</b>.", [7, 27])
 new Game.AddAchievement("Thyme", "Purchase <b>every time machine upgrade</b>.", [8, 27])
@@ -170,7 +170,7 @@ Game.Achievements["Zero friction lubricant"].order = 6000.55;
 Game.Achievements["No win no fee guarentee"].order = 6000.56;
 Game.Achievements["A series of strongly held beliefs"].order = 6000.57;
 Game.Achievements["Klein mana bottles"].order = 6000.58;
-Game.Achievements["Bottomless fuel tanks"].order = 6000.59;
+Game.Achievements["Bottomless fuel cells"].order = 6000.59;
 Game.Achievements["Boltzmann distribution tactics"].order = 6000.60;
 Game.Achievements["Fractures in space, shattering reality"].order = 6000.61;
 Game.Achievements["Thyme"].order = 6000.62;
@@ -327,11 +327,11 @@ Game.customChecks = [
 			Game.Upgrades["Deluxe tailored wands"].bought == 1 && Game.Upgrades["Immobile spellcasting"].bought == 1 && Game.Upgrades["Electricity"].bought == 1) {
 			Game.Win("Klein mana bottles");
 		}
-		if (Game.Achievements["Bottomless fuel tanks"].won == 0 &&
+		if (Game.Achievements["Bottomless fuel cells"].won == 0 &&
 			Game.Upgrades["Vanilla nebulae"].bought == 1 && Game.Upgrades["Wormholes"].bought == 1 && Game.Upgrades["Frequent flyer"].bought == 1 && Game.Upgrades["Warp drive"].bought == 1 &&
 			Game.Upgrades["Chocolate monoliths"].bought == 1 && Game.Upgrades["Generation ship"].bought == 1 && Game.Upgrades["Dyson sphere"].bought == 1 && Game.Upgrades["The final frontier"].bought == 1 &&
 			Game.Upgrades["Autopilot"].bought == 1 && Game.Upgrades["Restaurants at the end of the universe"].bought == 1 && Game.Upgrades["Universal alphabet"].bought == 1) {
-			Game.Win("Bottomless fuel tanks");
+			Game.Win("Bottomless fuel cells");
 		}
 
 
