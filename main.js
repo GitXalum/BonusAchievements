@@ -316,7 +316,7 @@ Game.customChecks = [
 			Game.Win("No win no fee guarentee");
 		}
 		if (Game.Achievements["A series of strongly held beliefs"].won == 0 &&
-			Game.Upgrades["Golden idols"].bought == 1 && Game.Upgrades["Sacrifices"].bought == 1 && Game.Upgrades["Delicious blessings"].bought == 1 && Game.Upgrades["Sun festival"].bought == 1 &&
+			Game.Upgrades["Golden idols"].bought == 1 && Game.Upgrades["Sacrifices"].bought == 1 && Game.Upgrades["Delicious blessing"].bought == 1 && Game.Upgrades["Sun festival"].bought == 1 &&
 			Game.Upgrades["Enlarged pantheon"].bought == 1 && Game.Upgrades["Great baker in the sky"].bought == 1 && Game.Upgrades["Creation myth"].bought == 1 && Game.Upgrades["Theocracy"].bought == 1 &&
 			Game.Upgrades["Sick rap prayers"].bought == 1 && Game.Upgrades["Psalm-reading"].bought == 1 && Game.Upgrades["War of the gods"].bought == 1) {
 			Game.Win("A series of strongly help beliefs");
