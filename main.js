@@ -64,7 +64,7 @@ new Game.AddAchievement("Wrath cookie", "Click a <b>wrath cookie</b>.", [15, 5])
 new Game.AddAchievement("Dodgy cookie", "Click <b>6 wrath cookies</b>.", [5, 0, icons]);
 new Game.AddAchievement("Withering heights", "Click <b>66 wrath cookies</b>.", [6, 0, icons]);
 new Game.AddAchievement("Hattrick", "Have <b>3</b> buffs active simultaneously.", [22, 6]);
-new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
+new Game.AddAchievement("Dichotomy", "Have both a golden cookie, and wrath cookie, present on screen <b>simultaneously</b>.<q>Perfectly balanced, as all things should be.</q>", [1, 0, icons]);
 new Game.AddAchievement("Unlucky", "Miss a golden cookie.", [3, 0, icons]);
 new Game.AddAchievement("Crumbling fortune", "Miss <b>77</b> golden cookies.", [3, 0, icons]);
 
@@ -79,6 +79,8 @@ new Game.AddAchievement('Dyspepsia', 'Burst a wrinkler containing <b>10000000000
 new Game.AddAchievement('Hemorrhage', 'Burst a wrinkler containing <b>1000000000000000000000000000000</b> cookies.', [0, 0, icons]);
 
 new Game.AddAchievement("Master of the elements", "Experience every season in one ascension.", [16, 6]);
+
+new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]);
 
 new Game.AddAchievement("Euclidean geometry", "Own <b>500</b> upgrades and <b>5000</b> buildings.<q>The giants look up to you, for you have gone far beyond what they could ever have hoped to, the world is in your hands.</q>", [9, 0, icons]);
 
@@ -120,7 +122,6 @@ new Game.AddAchievement("Earl of creation", "Own <b>1000</b> of any building.", 
 new Game.AddAchievement("Modded god complex", "Name yourself <b>Xalum</b>.<div class='warning'>Note : modded usurpers incur a -2% CpS penalty until they rename themselves something else.</div><q>Come on now that's still not you, is it?</q>", [2, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Opti complex", "Name yourself <b>Opti</b>.<div class='warning'>Note : usurpers incur a -1% CpS penalty until they rename themselves something else.</div><q>Hey you remembered me, but that's not you, is it?</q>", [3, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Tragedy comes in trees", "Convert a complete seed log into sugar lumps by sacrificing your garden to the sugar hornets <b>three times</b>.<q>The hornets send their regards and eagerly await your next sacrifice.</q>", [4, 1, icons]); Game.last.pool = "shadow";
-new Game.AddAchievement("Excellent bakery", "Own <b>1 month's worth</b> of your unbuffed CpS.<q>You and I have witnessed many things, but nothing as bodacious as what just happened.</q>", [5, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Completionism", "Own <b>every base game achievement</b>.<q>You did it, there's nothing left to do. So what now?</q>", [6, 1, icons]); Game.last.pool = "shadow";
 new Game.AddAchievement("Modded completionism", "Own <b>every custom achievement</b>.<q>I have to say I'm impressed, good job, and thank you for playing.</q>", [7, 1, icons]); Game.last.pool = "shadow";
 
@@ -145,6 +146,7 @@ Game.Achievements['Dyspepsia'].order = 21000.109;
 Game.Achievements['Hemorrhage'].order = 21000.110;
 
 Game.Achievements["Master of the elements"].order = 22400.170;
+Game.Achievements["Excellent bakery"].order = 22400.171;
 
 Game.Achievements["Euclidean geometry"].order = 6000.44;
 
@@ -186,7 +188,6 @@ Game.Achievements["Earl of creation"].order = 32207.1;
 Game.Achievements["Modded god complex"].order = 30200.1592;
 Game.Achievements["Opti complex"].order = 30200.1591;
 Game.Achievements["Tragedy comes in trees"].order = 33000.105;
-Game.Achievements["Excellent bakery"].order = 36000.368;
 Game.Achievements["Completionism"].order = 37000.70;
 Game.Achievements["Modded completionism"].order = 37000.80;
 
