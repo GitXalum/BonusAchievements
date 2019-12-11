@@ -333,6 +333,18 @@ Game.customChecks = [
 			Game.Upgrades["Autopilot"].bought == 1 && Game.Upgrades["Restaurants at the end of the universe"].bought == 1 && Game.Upgrades["Universal alphabet"].bought == 1) {
 			Game.Win("Bottomless fuel cells");
 		}
+		if (Game.Achievements["Boltzmann distribution tactics"].won == 0 &&
+			Game.Upgrades["Antimony"].bought == 1 && Game.Upgrades["Essence of dough"].bought == 1 && Game.Upgrades["True chocolate"].bought == 1 && Game.Upgrades["Ambrosia"].bought == 1 &&
+			Game.Upgrades["Aqua crustulae"].bought == 1 && Game.Upgrades["Origin crucible"].bought == 1 && Game.Upgrades["Theory of atomic fluidity"].bought == 1 && Game.Upgrades["Beige goo"].bought == 1 &&
+			Game.Upgrades["The advent of chemistry"].bought == 1 && Game.Upgrades["On second thought"].bought == 1 && Game.Upgrades["Public betterment"].bought == 1) {
+			Game.Win("Boltzmann distribution tactics");
+		}
+		if (Game.Achievements["Fractures in space, shattering reality"].won == 0 &&
+			Game.Upgrades["Ancient tablet"].bought == 1 && Game.Upgrades["Insane oatling workers"].bought == 1 && Game.Upgrades["Soul bond"].bought == 1 && Game.Upgrades["Sanity dance"].bought == 1 &&
+			Game.Upgrades["Brane transplant"].bought == 1 && Game.Upgrades["Deity-sized portals"].bought == 1 && Game.Upgrades["End of times back-up plan"].bought == 1 && Game.Upgrades["Maddening chants"].bought == 1 &&
+			Game.Upgrades["The real world"].bought == 1 && Game.Upgrades["Dimensional garbage gulper"].bought == 1 && Game.Upgrades["Embedded microportals"].bought == 1) {
+			Game.Win("Fractures in space, shattering reality");
+		}
 
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
