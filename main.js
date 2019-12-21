@@ -347,6 +347,20 @@ Game.customChecks = [
 			Game.Win("Fractures in space, shattering reality");
 		}
 
+		if (Game.Achievements["Thyme"].won == 0 &&
+			Game.Upgrades["Flux capacitors"].bought == 1 && Game.Upgrades["Time paradox resolver"].bought == 1 && Game.Upgrades["Quantum conundrum"].bought == 1 && Game.Upgrades["Causality enforcer"].bought == 1 &&
+			Game.Upgrades["Yestermorrow comparators"].bought == 1 && Game.Upgrades["Far future enactment"].bought == 1 && Game.Upgrades["Great loop hypothesis"].bought == 1 && Game.Upgrades["Cookietopian moments of maybe"].bought == 1 &&
+			Game.Upgrades["Second seconds"].bought == 1 && Game.Upgrades["Additional clock hands"].bought == 1 && Game.Upgrades["Nostalgia"].bought == 1) {
+			Game.Win("Thyme");
+		}
+
+		if (Game.Achievements["Condensing into a third dimension"].won == 0 &&
+			Game.Upgrades["Sugar bosons"].bought == 1 && Game.Upgrades["String theory"].bought == 1 && Game.Upgrades["Large macaron collider"].bought == 1 && Game.Upgrades["Big bang bake"].bought == 1 &&
+			Game.Upgrades["Reverse cyclotrons"].bought == 1 && Game.Upgrades["Nanocosmics"].bought == 1 && Game.Upgrades["The Pulse"].bought == 1 && Game.Upgrades["Some other super-tiny fundamental particle? Probably?"].bought == 1 &&
+			Game.Upgrades["Quantum comb"].bought == 1 && Game.Upgrades["Baking Nobel prize"].bought == 1 && Game.Upgrades["The definite molecule"].bought == 1) {
+			Game.Win("Condensing into a third dimension")
+		}
+
 
 		if (Game.foundAllGardenUpgrades) Game.Win("Farming simulator");
 		if (Game.Objects.Farm.minigame.plantsUnlockedN >= Game.Objects.Farm.minigame.plantsN / 2) Game.Win("Finder's keepers");
