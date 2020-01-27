@@ -358,7 +358,21 @@ Game.customChecks = [
 			Game.Upgrades["Sugar bosons"].bought == 1 && Game.Upgrades["String theory"].bought == 1 && Game.Upgrades["Large macaron collider"].bought == 1 && Game.Upgrades["Big bang bake"].bought == 1 &&
 			Game.Upgrades["Reverse cyclotrons"].bought == 1 && Game.Upgrades["Nanocosmics"].bought == 1 && Game.Upgrades["The Pulse"].bought == 1 && Game.Upgrades["Some other super-tiny fundamental particle? Probably?"].bought == 1 &&
 			Game.Upgrades["Quantum comb"].bought == 1 && Game.Upgrades["Baking Nobel prize"].bought == 1 && Game.Upgrades["The definite molecule"].bought == 1) {
-			Game.Win("Condensing into a third dimension")
+			Game.Win("Condensing into a third dimension");
+		}
+
+		if (Game.Achievements["An unnecessary quantity of crystal polish"].won == 0 &&
+			Game.Upgrades["Gem polish"].bought == 1 && Game.Upgrades["9th color"].bought == 1 && Game.Upgrades["Chocolate light"].bought == 1 && Game.Upgrades["Grainbow"].bought == 1 &&
+			Game.Upgrades["Pure cosmic light"].bought == 1 && Game.Upgrades["Glow-in-the-dark"].bought == 1 && Game.Upgrades["Lux sanctorum"].bought == 1 && Game.Upgrades["Reverse shadows"].bought == 1 &&
+			Game.Upgrades["Crystal mirrors"].bought == 1 && Game.Upgrades["Reverse theory of light"].bought == 1 && Game.Upgrades["Light capture measures"].bought == 1) {
+			Game.Win("An unnecessary quantity of crystal polish");
+		}
+
+		if (Game.Achievements["Influence over cause and effect"].won == 0 &&
+			Game.Upgrades["Your lucky cookie"].bought == 1 && Game.Upgrades['"All Bets Are Off" magic coin'].bought == 1 && Game.Upgrades["Winning lottery ticket"].bought == 1 && Game.Upgrades["Four-leaf clover field"].bought == 1 &&
+			Game.Upgrades["A recipe book about books"].bought == 1 && Game.Upgrades["Leprechaun village"].bought == 1 && Game.Upgrades["Improbability drive"].bought == 1 && Game.Upgrades["Antisuperstistronics"].bought == 1 &&
+			Game.Upgrades["Bunnypedes"].bought == 1 && Game.Upgrades["Revised probabilities"].bought == 1 && Game.Upgrades["0-sided dice"].bought == 1) {
+			Game.Win("Influence over cause and effect");
 		}
 
 
