@@ -371,7 +371,7 @@ Game.customChecks = [
 		if (Game.Achievements["Influence over cause and effect"].won == 0 &&
 			Game.Upgrades["Your lucky cookie"].bought == 1 && Game.Upgrades['"All Bets Are Off" magic coin'].bought == 1 && Game.Upgrades["Winning lottery ticket"].bought == 1 && Game.Upgrades["Four-leaf clover field"].bought == 1 &&
 			Game.Upgrades["A recipe book about books"].bought == 1 && Game.Upgrades["Leprechaun village"].bought == 1 && Game.Upgrades["Improbability drive"].bought == 1 && Game.Upgrades["Antisuperstistronics"].bought == 1 &&
-			Game.Upgrades["Bunnypedes"].bought == 1 && Game.Upgrades["Revised probabilities"].bought == 1 && Game.Upgrades["0-sided dice"].bought == 1) {
+			Game.Upgrades["Bunnypedes"].bought == 1 && Game.Upgrades["Revised probabilistics"].bought == 1 && Game.Upgrades["0-sided dice"].bought == 1) {
 			Game.Win("Influence over cause and effect");
 		}
 
